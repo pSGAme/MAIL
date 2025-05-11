@@ -1,4 +1,4 @@
-name: ProS
+name: MAIL
 channels:
   - pytorch
   - conda-forge

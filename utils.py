@@ -1,6 +1,7 @@
 from tqdm import tqdm
 import torch
 import clip
+import os
 
 def cls_acc(output, target, topk=1):
     pred = output.topk(topk, 1, True, True)[1].t()
@@ -42,3 +43,15 @@ def pre_load_features(clip_model, loader):
     
     return features, labels
 
+
+def check_null_bytes(direc):
+    for root, dirs, files in os.walk(direc):
+        for file in files:
+            file_path = os.path.join(root, file)
+            try:
+                with open(file_path, "rb") as f:
+                    content = f.read()
+                    if b'\x00' in content:
+                        print(file_path)
+            except:
+                print("nad")

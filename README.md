@@ -1,47 +1,35 @@
-# ProS: Prompting-to-simulate [CVPR2024]
-
-> Official github repository for **ProS: Prompting-to-simulate Generalized knowledge for Universal Cross-Domain Retrieval**. 
-> 
-> Please refer to [paper link](https://arxiv.org/abs/2312.12478) for detailed information.
-
-<img src="./main_figure.png"/>
-
 ## Requirements
 
-- **Ubuntu** 18.04.5 
-- **Tesla V100-32GB** ( At least 24GB GPU memory )
-- **CUDA**  11.3
-
-Supports for other platforms and hardwares are possible with no warrant. 
+- **Ubuntu**  22.04.4
+- **RTX4090D-24GB or better**
+- **CUDA** 12.4
+- **python** 3.10.4
+- **torch** 1.12.1 py3.10_cuda11.3_cudnn8.3.2_0
+- **torchvision** 0.13.1 py310_cu113
 
 ## Setups
 
-1. Clone this repository：
-
-``` bash
-git clone https://github.com/fangkaipeng/ProS.git
-```
+1. download the zip file.
 
 2. Install dependencies：
 
 ```bash
-cd ./ProS
-conda env create -f ProS.yaml
-conda activate ProS
+cd ./MAIL
+conda env create -f MAIL.yaml
+conda activate MAIL
 ```
 
 ## Data Preparation
 
-1. Download DomainNet, Sketchy and TU-Berlin using scripts in `./ProS/downloads`.
+1. Download DomainNet using scripts in `./DePro/src/data/downloads`.
 
    ``` bash
-   cd ./src/downloads
+   cd ./src/data/downloads
    bash download_domainnet.sh
-   bash download_sketchy.sh
-   bash download_tuberlin.sh
    ```
+2. For Sketchy and TU-berlin, please refer to this [issue](https://github.com/kaipengfang/ProS/issues/3).
 
-2. The directory is expected to be in the structure below:
+3. The directory is expected to be in the structure below:
 
    ```python
    ├── DomainNet
@@ -75,49 +63,72 @@ conda activate ProS
    ```
 
 ## Experiments
+The algorithms are in ./src/algos
 
-### CLIP-Full:
+Be sure to modifiy the `data_path` and `code_path` in each main.py
+### baseline:
 
 ```bash
-cd ./src/algos/CLIP-Full
-bash reproduce_runs.sh
+cd ./src/algos/depro
+
+sh baseline.sh
 ```
 
-### CoOp and VPT:
+### MaPLe+IVLP+VPT+VPT-D:
 
 ```bash
-cd ./src/algos/PromptTuning
-bash reproduce_runs.sh
+cd ./src/algos/1_PromptFamily
+sh run.sh
+```
+
+### MMA:
+
+```bash
+cd ./src/algos/2_MMA
+sh run.sh
+```
+### IVLA:
+
+```bash
+cd ./src/algos/3_IVLA
+sh run.sh
+```
+
+### AdaptFormer:
+
+```bash
+cd ./src/algos/2_MMA
+sh run.sh
+```
+
+### LoRA:
+
+```bash
+cd ./src/algos/5_LoRA
+sh run.sh
+```
+
+### BitFit:
+
+```bash
+cd ./src/algos/6_BitFit
+sh run.sh
 ```
 
 ### ProS:
 
 ```bash
-cd ./src/algos/ProS
-bash reproduce_runs.sh
+cd ./src/algos/7_ProS
+sh run.sh
 ```
 
-## Citation
 
-Tips: ArXiv version, as it has not yet been officially accepted by CVPR2024.
+### MAIL (Ours):
 
-```
-@article{ProS,
-  author       = {Kaipeng Fang and
-                  Jingkuan Song and
-                  Lianli Gao and
-                  Pengpeng Zeng and
-                  Zhi{-}Qi Cheng and
-                  Xiyao Li and
-                  Heng Tao Shen},
-  title        = {ProS: Prompting-to-simulate Generalized knowledge for Universal Cross-Domain
-                  Retrieval},
-  journal      = {CoRR},
-  year         = {2023},
-  doi          = {10.48550/ARXIV.2312.12478},
-}
+```bash
+cd ./src/algos/MAIL
+sh run.sh
 ```
 
-## Acknowledgements
 
-Our code implementation is based on this [repo](https://github.com/KaiyangZhou/CoOp).
+
