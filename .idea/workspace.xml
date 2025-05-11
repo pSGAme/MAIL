@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c7dbbeef-ddfd-453f-b77b-29ec6140be2e" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/src/algos/2_MaPLe_TripletLoss" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/clip/model.py" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2ip9AS4tBPDsvnZzZSvkIZnjDvp" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DePro_SIGIR" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/algos" />
+      <recent name="$PROJECT_DIR$/src/algos/2_MaPLe_TripletLoss" />
+      <recent name="$PROJECT_DIR$/clip_pic2word" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/algos/4_MaLaN_TripletLoss_v2_for_few_shot" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/algos/4_MaLaN_TripletLoss_v2_for_few_shot" />
+      <recent name="$PROJECT_DIR$/src/algos/ProS_ckx_TextCoVPTSRC/log/DomainNet/seen-quickdraw_unseen-sketch_x_real/trash" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c7dbbeef-ddfd-453f-b77b-29ec6140be2e" name="Changes" comment="" />
+      <created>1720176508005</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1720176508005</updated>
+      <workItem from="1720176509162" duration="28760000" />
+      <workItem from="1720256748116" duration="5498000" />
+      <workItem from="1720277257092" duration="5640000" />
+      <workItem from="1722867254417" duration="12702000" />
+      <workItem from="1723218531056" duration="732000" />
+      <workItem from="1723807296097" duration="5000" />
+      <workItem from="1725882210538" duration="4433000" />
+      <workItem from="1726563182564" duration="3443000" />
+      <workItem from="1726656822836" duration="1198000" />
+      <workItem from="1727016011764" duration="964000" />
+      <workItem from="1727098271483" duration="1053000" />
+      <workItem from="1727276465662" duration="2308000" />
+      <workItem from="1727316174340" duration="12145000" />
+      <workItem from="1727347014455" duration="3636000" />
+      <workItem from="1727428373882" duration="1621000" />
+      <workItem from="1727678983204" duration="3371000" />
+      <workItem from="1727931355640" duration="36000" />
+      <workItem from="1728448274435" duration="20332000" />
+      <workItem from="1728527705289" duration="8777000" />
+      <workItem from="1728641399163" duration="1000" />
+      <workItem from="1728654254238" duration="1152000" />
+      <workItem from="1728655571906" duration="19000" />
+      <workItem from="1728723164164" duration="3227000" />
+      <workItem from="1728726698104" duration="12485000" />
+      <workItem from="1728892151065" duration="7292000" />
+      <workItem from="1728901916444" duration="5308000" />
+      <workItem from="1728909365919" duration="181113000" />
+      <workItem from="1730351984625" duration="65463000" />
+      <workItem from="1731480676919" duration="295730000" />
+      <workItem from="1733919925770" duration="85621000" />
+      <workItem from="1734500913673" duration="5938000" />
+      <workItem from="1734510744379" duration="206316000" />
+      <workItem from="1736684586789" duration="60813000" />
+      <workItem from="1739971181993" duration="12694000" />
+      <workItem from="1742967223534" duration="69463000" />
+      <workItem from="1744683805344" duration="621000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
