@@ -1,0 +1,2417 @@
+================Parameters Settings=================
+Parameters:	Namespace(num_shots=1, position='all', params=['q', 'k', 'v'], r=6, alpha=1, dropout_rate=0.25, log_name='reviewer_1', encoder='both', visual='VPT', vptNumTokens=4, ctx_init='a photo of a', text='CoOp', textNumTokens=4, optimizer='adam', l2_reg=0.0, epochs=1, lr=0.0005, momentum=0.9, resume_dict=None, code_path='/home/user/Code/DePro', dataset_path='/data/UCDR/data', dataset='DomainNet', is_eccv_split=1, clip_backbone='ViT-B/32', CLS_NUM_TOKENS=300, DOM_NUM_TOKENS=5, debug_mode=0, dropout=0.5, seen_domain='infograph', holdout_domain='painting', gallery_domain='real', include_auxillary_domains=1, udcdr=0, image_size=224, seed=0, batch_size=50, num_workers=6, early_stop=2, log_interval=100)
+================Training Settings=================
+lr = 0.0005
+batch_size = 50
+==================================================
+Residual Attention Block 0: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 1: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 2: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 3: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 4: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 5: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 6: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 7: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 8: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 9: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 10: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 11: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 0: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 1: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 2: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 3: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 4: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 5: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 6: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 7: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 8: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 9: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 10: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 11: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+======== Context-aware Simulator Learning Setup========
+visual.transformer.resblocks.0.attn.q_proj.w_lora_A
+visual.transformer.resblocks.0.attn.q_proj.w_lora_B
+visual.transformer.resblocks.0.attn.k_proj.w_lora_A
+visual.transformer.resblocks.0.attn.k_proj.w_lora_B
+visual.transformer.resblocks.0.attn.v_proj.w_lora_A
+visual.transformer.resblocks.0.attn.v_proj.w_lora_B
+visual.transformer.resblocks.1.attn.q_proj.w_lora_A
+visual.transformer.resblocks.1.attn.q_proj.w_lora_B
+visual.transformer.resblocks.1.attn.k_proj.w_lora_A
+visual.transformer.resblocks.1.attn.k_proj.w_lora_B
+visual.transformer.resblocks.1.attn.v_proj.w_lora_A
+visual.transformer.resblocks.1.attn.v_proj.w_lora_B
+visual.transformer.resblocks.2.attn.q_proj.w_lora_A
+visual.transformer.resblocks.2.attn.q_proj.w_lora_B
+visual.transformer.resblocks.2.attn.k_proj.w_lora_A
+visual.transformer.resblocks.2.attn.k_proj.w_lora_B
+visual.transformer.resblocks.2.attn.v_proj.w_lora_A
+visual.transformer.resblocks.2.attn.v_proj.w_lora_B
+visual.transformer.resblocks.3.attn.q_proj.w_lora_A
+visual.transformer.resblocks.3.attn.q_proj.w_lora_B
+visual.transformer.resblocks.3.attn.k_proj.w_lora_A
+visual.transformer.resblocks.3.attn.k_proj.w_lora_B
+visual.transformer.resblocks.3.attn.v_proj.w_lora_A
+visual.transformer.resblocks.3.attn.v_proj.w_lora_B
+visual.transformer.resblocks.4.attn.q_proj.w_lora_A
+visual.transformer.resblocks.4.attn.q_proj.w_lora_B
+visual.transformer.resblocks.4.attn.k_proj.w_lora_A
+visual.transformer.resblocks.4.attn.k_proj.w_lora_B
+visual.transformer.resblocks.4.attn.v_proj.w_lora_A
+visual.transformer.resblocks.4.attn.v_proj.w_lora_B
+visual.transformer.resblocks.5.attn.q_proj.w_lora_A
+visual.transformer.resblocks.5.attn.q_proj.w_lora_B
+visual.transformer.resblocks.5.attn.k_proj.w_lora_A
+visual.transformer.resblocks.5.attn.k_proj.w_lora_B
+visual.transformer.resblocks.5.attn.v_proj.w_lora_A
+visual.transformer.resblocks.5.attn.v_proj.w_lora_B
+visual.transformer.resblocks.6.attn.q_proj.w_lora_A
+visual.transformer.resblocks.6.attn.q_proj.w_lora_B
+visual.transformer.resblocks.6.attn.k_proj.w_lora_A
+visual.transformer.resblocks.6.attn.k_proj.w_lora_B
+visual.transformer.resblocks.6.attn.v_proj.w_lora_A
+visual.transformer.resblocks.6.attn.v_proj.w_lora_B
+visual.transformer.resblocks.7.attn.q_proj.w_lora_A
+visual.transformer.resblocks.7.attn.q_proj.w_lora_B
+visual.transformer.resblocks.7.attn.k_proj.w_lora_A
+visual.transformer.resblocks.7.attn.k_proj.w_lora_B
+visual.transformer.resblocks.7.attn.v_proj.w_lora_A
+visual.transformer.resblocks.7.attn.v_proj.w_lora_B
+visual.transformer.resblocks.8.attn.q_proj.w_lora_A
+visual.transformer.resblocks.8.attn.q_proj.w_lora_B
+visual.transformer.resblocks.8.attn.k_proj.w_lora_A
+visual.transformer.resblocks.8.attn.k_proj.w_lora_B
+visual.transformer.resblocks.8.attn.v_proj.w_lora_A
+visual.transformer.resblocks.8.attn.v_proj.w_lora_B
+visual.transformer.resblocks.9.attn.q_proj.w_lora_A
+visual.transformer.resblocks.9.attn.q_proj.w_lora_B
+visual.transformer.resblocks.9.attn.k_proj.w_lora_A
+visual.transformer.resblocks.9.attn.k_proj.w_lora_B
+visual.transformer.resblocks.9.attn.v_proj.w_lora_A
+visual.transformer.resblocks.9.attn.v_proj.w_lora_B
+visual.transformer.resblocks.10.attn.q_proj.w_lora_A
+visual.transformer.resblocks.10.attn.q_proj.w_lora_B
+visual.transformer.resblocks.10.attn.k_proj.w_lora_A
+visual.transformer.resblocks.10.attn.k_proj.w_lora_B
+visual.transformer.resblocks.10.attn.v_proj.w_lora_A
+visual.transformer.resblocks.10.attn.v_proj.w_lora_B
+visual.transformer.resblocks.11.attn.q_proj.w_lora_A
+visual.transformer.resblocks.11.attn.q_proj.w_lora_B
+visual.transformer.resblocks.11.attn.k_proj.w_lora_A
+visual.transformer.resblocks.11.attn.k_proj.w_lora_B
+visual.transformer.resblocks.11.attn.v_proj.w_lora_A
+visual.transformer.resblocks.11.attn.v_proj.w_lora_B
+transformer.resblocks.0.attn.q_proj.w_lora_A
+transformer.resblocks.0.attn.q_proj.w_lora_B
+transformer.resblocks.0.attn.k_proj.w_lora_A
+transformer.resblocks.0.attn.k_proj.w_lora_B
+transformer.resblocks.0.attn.v_proj.w_lora_A
+transformer.resblocks.0.attn.v_proj.w_lora_B
+transformer.resblocks.1.attn.q_proj.w_lora_A
+transformer.resblocks.1.attn.q_proj.w_lora_B
+transformer.resblocks.1.attn.k_proj.w_lora_A
+transformer.resblocks.1.attn.k_proj.w_lora_B
+transformer.resblocks.1.attn.v_proj.w_lora_A
+transformer.resblocks.1.attn.v_proj.w_lora_B
+transformer.resblocks.2.attn.q_proj.w_lora_A
+transformer.resblocks.2.attn.q_proj.w_lora_B
+transformer.resblocks.2.attn.k_proj.w_lora_A
+transformer.resblocks.2.attn.k_proj.w_lora_B
+transformer.resblocks.2.attn.v_proj.w_lora_A
+transformer.resblocks.2.attn.v_proj.w_lora_B
+transformer.resblocks.3.attn.q_proj.w_lora_A
+transformer.resblocks.3.attn.q_proj.w_lora_B
+transformer.resblocks.3.attn.k_proj.w_lora_A
+transformer.resblocks.3.attn.k_proj.w_lora_B
+transformer.resblocks.3.attn.v_proj.w_lora_A
+transformer.resblocks.3.attn.v_proj.w_lora_B
+transformer.resblocks.4.attn.q_proj.w_lora_A
+transformer.resblocks.4.attn.q_proj.w_lora_B
+transformer.resblocks.4.attn.k_proj.w_lora_A
+transformer.resblocks.4.attn.k_proj.w_lora_B
+transformer.resblocks.4.attn.v_proj.w_lora_A
+transformer.resblocks.4.attn.v_proj.w_lora_B
+transformer.resblocks.5.attn.q_proj.w_lora_A
+transformer.resblocks.5.attn.q_proj.w_lora_B
+transformer.resblocks.5.attn.k_proj.w_lora_A
+transformer.resblocks.5.attn.k_proj.w_lora_B
+transformer.resblocks.5.attn.v_proj.w_lora_A
+transformer.resblocks.5.attn.v_proj.w_lora_B
+transformer.resblocks.6.attn.q_proj.w_lora_A
+transformer.resblocks.6.attn.q_proj.w_lora_B
+transformer.resblocks.6.attn.k_proj.w_lora_A
+transformer.resblocks.6.attn.k_proj.w_lora_B
+transformer.resblocks.6.attn.v_proj.w_lora_A
+transformer.resblocks.6.attn.v_proj.w_lora_B
+transformer.resblocks.7.attn.q_proj.w_lora_A
+transformer.resblocks.7.attn.q_proj.w_lora_B
+transformer.resblocks.7.attn.k_proj.w_lora_A
+transformer.resblocks.7.attn.k_proj.w_lora_B
+transformer.resblocks.7.attn.v_proj.w_lora_A
+transformer.resblocks.7.attn.v_proj.w_lora_B
+transformer.resblocks.8.attn.q_proj.w_lora_A
+transformer.resblocks.8.attn.q_proj.w_lora_B
+transformer.resblocks.8.attn.k_proj.w_lora_A
+transformer.resblocks.8.attn.k_proj.w_lora_B
+transformer.resblocks.8.attn.v_proj.w_lora_A
+transformer.resblocks.8.attn.v_proj.w_lora_B
+transformer.resblocks.9.attn.q_proj.w_lora_A
+transformer.resblocks.9.attn.q_proj.w_lora_B
+transformer.resblocks.9.attn.k_proj.w_lora_A
+transformer.resblocks.9.attn.k_proj.w_lora_B
+transformer.resblocks.9.attn.v_proj.w_lora_A
+transformer.resblocks.9.attn.v_proj.w_lora_B
+transformer.resblocks.10.attn.q_proj.w_lora_A
+transformer.resblocks.10.attn.q_proj.w_lora_B
+transformer.resblocks.10.attn.k_proj.w_lora_A
+transformer.resblocks.10.attn.k_proj.w_lora_B
+transformer.resblocks.10.attn.v_proj.w_lora_A
+transformer.resblocks.10.attn.v_proj.w_lora_B
+transformer.resblocks.11.attn.q_proj.w_lora_A
+transformer.resblocks.11.attn.q_proj.w_lora_B
+transformer.resblocks.11.attn.k_proj.w_lora_A
+transformer.resblocks.11.attn.k_proj.w_lora_B
+transformer.resblocks.11.attn.v_proj.w_lora_A
+transformer.resblocks.11.attn.v_proj.w_lora_B
+tot=151277313, train = 552960
+===============================================
+epoch = [1/1]loss = {'net': 4.8724262992541, 'acc': 0.4693333333333333}
+
+***Validation***
+udcdr == 0
+Query:painting; Gallery:real; Generalized:0
+
+Query Emb Dim:torch.Size([10911, 512]); Gallery Emb Dim:torch.Size([24387, 512])
+computing unormed situation
+tensor(0.6422, device='cuda:1') tensor(0.5779, device='cuda:1')
+computing normed situation
+tensor(0.6474, device='cuda:1') tensor(0.5737, device='cuda:1')
+un-norm situation:
+learned: map: 0.6422387957572937, prec: 0.5778668522834778
+norm situation:
+learned: map: 0.6474453210830688, prec: 0.5736843347549438
+Query:painting; Gallery:real; Generalized:1
+
+Query Emb Dim:torch.Size([10911, 512]); Gallery Emb Dim:torch.Size([36600, 512])
+computing unormed situation
+tensor(0.5920, device='cuda:1') tensor(0.5299, device='cuda:1')
+computing normed situation
+tensor(0.5969, device='cuda:1') tensor(0.5275, device='cuda:1')
+un-norm situation:
+learned: map: 0.5920055508613586, prec: 0.5299496054649353
+norm situation:
+learned: map: 0.5969426035881042, prec: 0.527480959892273
+udcdr == 1
+
+Query Emb Dim:torch.Size([2534, 512]); Gallery Emb Dim:torch.Size([5857, 512])
+computing unormed situation
+tensor(0.5796, device='cuda:1') tensor(0.3334, device='cuda:1')
+computing normed situation
+tensor(0.5837, device='cuda:1') tensor(0.3202, device='cuda:1')
+un-norm situation:
+learned: map: 0.5796182751655579, prec: 0.3334392309188843
+norm situation:
+learned: map: 0.5836877226829529, prec: 0.3202190101146698
+Epoch Time:2m39s lr:0.0005000 mAP:0.5969 prec:0.5275
+
+
+***Training and Validation complete***
+================Parameters Settings=================
+Parameters:	Namespace(num_shots=2, position='all', params=['q', 'k', 'v'], r=6, alpha=1, dropout_rate=0.25, log_name='reviewer_1', encoder='both', visual='VPT', vptNumTokens=4, ctx_init='a photo of a', text='CoOp', textNumTokens=4, optimizer='adam', l2_reg=0.0, epochs=1, lr=0.0005, momentum=0.9, resume_dict=None, code_path='/home/user/Code/DePro', dataset_path='/data/UCDR/data', dataset='DomainNet', is_eccv_split=1, clip_backbone='ViT-B/32', CLS_NUM_TOKENS=300, DOM_NUM_TOKENS=5, debug_mode=0, dropout=0.5, seen_domain='infograph', holdout_domain='painting', gallery_domain='real', include_auxillary_domains=1, udcdr=0, image_size=224, seed=0, batch_size=50, num_workers=6, early_stop=2, log_interval=100)
+================Training Settings=================
+lr = 0.0005
+batch_size = 50
+==================================================
+Residual Attention Block 0: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 1: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 2: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 3: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 4: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 5: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 6: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 7: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 8: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 9: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 10: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 11: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 0: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 1: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 2: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 3: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 4: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 5: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 6: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 7: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 8: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 9: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 10: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 11: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+======== Context-aware Simulator Learning Setup========
+visual.transformer.resblocks.0.attn.q_proj.w_lora_A
+visual.transformer.resblocks.0.attn.q_proj.w_lora_B
+visual.transformer.resblocks.0.attn.k_proj.w_lora_A
+visual.transformer.resblocks.0.attn.k_proj.w_lora_B
+visual.transformer.resblocks.0.attn.v_proj.w_lora_A
+visual.transformer.resblocks.0.attn.v_proj.w_lora_B
+visual.transformer.resblocks.1.attn.q_proj.w_lora_A
+visual.transformer.resblocks.1.attn.q_proj.w_lora_B
+visual.transformer.resblocks.1.attn.k_proj.w_lora_A
+visual.transformer.resblocks.1.attn.k_proj.w_lora_B
+visual.transformer.resblocks.1.attn.v_proj.w_lora_A
+visual.transformer.resblocks.1.attn.v_proj.w_lora_B
+visual.transformer.resblocks.2.attn.q_proj.w_lora_A
+visual.transformer.resblocks.2.attn.q_proj.w_lora_B
+visual.transformer.resblocks.2.attn.k_proj.w_lora_A
+visual.transformer.resblocks.2.attn.k_proj.w_lora_B
+visual.transformer.resblocks.2.attn.v_proj.w_lora_A
+visual.transformer.resblocks.2.attn.v_proj.w_lora_B
+visual.transformer.resblocks.3.attn.q_proj.w_lora_A
+visual.transformer.resblocks.3.attn.q_proj.w_lora_B
+visual.transformer.resblocks.3.attn.k_proj.w_lora_A
+visual.transformer.resblocks.3.attn.k_proj.w_lora_B
+visual.transformer.resblocks.3.attn.v_proj.w_lora_A
+visual.transformer.resblocks.3.attn.v_proj.w_lora_B
+visual.transformer.resblocks.4.attn.q_proj.w_lora_A
+visual.transformer.resblocks.4.attn.q_proj.w_lora_B
+visual.transformer.resblocks.4.attn.k_proj.w_lora_A
+visual.transformer.resblocks.4.attn.k_proj.w_lora_B
+visual.transformer.resblocks.4.attn.v_proj.w_lora_A
+visual.transformer.resblocks.4.attn.v_proj.w_lora_B
+visual.transformer.resblocks.5.attn.q_proj.w_lora_A
+visual.transformer.resblocks.5.attn.q_proj.w_lora_B
+visual.transformer.resblocks.5.attn.k_proj.w_lora_A
+visual.transformer.resblocks.5.attn.k_proj.w_lora_B
+visual.transformer.resblocks.5.attn.v_proj.w_lora_A
+visual.transformer.resblocks.5.attn.v_proj.w_lora_B
+visual.transformer.resblocks.6.attn.q_proj.w_lora_A
+visual.transformer.resblocks.6.attn.q_proj.w_lora_B
+visual.transformer.resblocks.6.attn.k_proj.w_lora_A
+visual.transformer.resblocks.6.attn.k_proj.w_lora_B
+visual.transformer.resblocks.6.attn.v_proj.w_lora_A
+visual.transformer.resblocks.6.attn.v_proj.w_lora_B
+visual.transformer.resblocks.7.attn.q_proj.w_lora_A
+visual.transformer.resblocks.7.attn.q_proj.w_lora_B
+visual.transformer.resblocks.7.attn.k_proj.w_lora_A
+visual.transformer.resblocks.7.attn.k_proj.w_lora_B
+visual.transformer.resblocks.7.attn.v_proj.w_lora_A
+visual.transformer.resblocks.7.attn.v_proj.w_lora_B
+visual.transformer.resblocks.8.attn.q_proj.w_lora_A
+visual.transformer.resblocks.8.attn.q_proj.w_lora_B
+visual.transformer.resblocks.8.attn.k_proj.w_lora_A
+visual.transformer.resblocks.8.attn.k_proj.w_lora_B
+visual.transformer.resblocks.8.attn.v_proj.w_lora_A
+visual.transformer.resblocks.8.attn.v_proj.w_lora_B
+visual.transformer.resblocks.9.attn.q_proj.w_lora_A
+visual.transformer.resblocks.9.attn.q_proj.w_lora_B
+visual.transformer.resblocks.9.attn.k_proj.w_lora_A
+visual.transformer.resblocks.9.attn.k_proj.w_lora_B
+visual.transformer.resblocks.9.attn.v_proj.w_lora_A
+visual.transformer.resblocks.9.attn.v_proj.w_lora_B
+visual.transformer.resblocks.10.attn.q_proj.w_lora_A
+visual.transformer.resblocks.10.attn.q_proj.w_lora_B
+visual.transformer.resblocks.10.attn.k_proj.w_lora_A
+visual.transformer.resblocks.10.attn.k_proj.w_lora_B
+visual.transformer.resblocks.10.attn.v_proj.w_lora_A
+visual.transformer.resblocks.10.attn.v_proj.w_lora_B
+visual.transformer.resblocks.11.attn.q_proj.w_lora_A
+visual.transformer.resblocks.11.attn.q_proj.w_lora_B
+visual.transformer.resblocks.11.attn.k_proj.w_lora_A
+visual.transformer.resblocks.11.attn.k_proj.w_lora_B
+visual.transformer.resblocks.11.attn.v_proj.w_lora_A
+visual.transformer.resblocks.11.attn.v_proj.w_lora_B
+transformer.resblocks.0.attn.q_proj.w_lora_A
+transformer.resblocks.0.attn.q_proj.w_lora_B
+transformer.resblocks.0.attn.k_proj.w_lora_A
+transformer.resblocks.0.attn.k_proj.w_lora_B
+transformer.resblocks.0.attn.v_proj.w_lora_A
+transformer.resblocks.0.attn.v_proj.w_lora_B
+transformer.resblocks.1.attn.q_proj.w_lora_A
+transformer.resblocks.1.attn.q_proj.w_lora_B
+transformer.resblocks.1.attn.k_proj.w_lora_A
+transformer.resblocks.1.attn.k_proj.w_lora_B
+transformer.resblocks.1.attn.v_proj.w_lora_A
+transformer.resblocks.1.attn.v_proj.w_lora_B
+transformer.resblocks.2.attn.q_proj.w_lora_A
+transformer.resblocks.2.attn.q_proj.w_lora_B
+transformer.resblocks.2.attn.k_proj.w_lora_A
+transformer.resblocks.2.attn.k_proj.w_lora_B
+transformer.resblocks.2.attn.v_proj.w_lora_A
+transformer.resblocks.2.attn.v_proj.w_lora_B
+transformer.resblocks.3.attn.q_proj.w_lora_A
+transformer.resblocks.3.attn.q_proj.w_lora_B
+transformer.resblocks.3.attn.k_proj.w_lora_A
+transformer.resblocks.3.attn.k_proj.w_lora_B
+transformer.resblocks.3.attn.v_proj.w_lora_A
+transformer.resblocks.3.attn.v_proj.w_lora_B
+transformer.resblocks.4.attn.q_proj.w_lora_A
+transformer.resblocks.4.attn.q_proj.w_lora_B
+transformer.resblocks.4.attn.k_proj.w_lora_A
+transformer.resblocks.4.attn.k_proj.w_lora_B
+transformer.resblocks.4.attn.v_proj.w_lora_A
+transformer.resblocks.4.attn.v_proj.w_lora_B
+transformer.resblocks.5.attn.q_proj.w_lora_A
+transformer.resblocks.5.attn.q_proj.w_lora_B
+transformer.resblocks.5.attn.k_proj.w_lora_A
+transformer.resblocks.5.attn.k_proj.w_lora_B
+transformer.resblocks.5.attn.v_proj.w_lora_A
+transformer.resblocks.5.attn.v_proj.w_lora_B
+transformer.resblocks.6.attn.q_proj.w_lora_A
+transformer.resblocks.6.attn.q_proj.w_lora_B
+transformer.resblocks.6.attn.k_proj.w_lora_A
+transformer.resblocks.6.attn.k_proj.w_lora_B
+transformer.resblocks.6.attn.v_proj.w_lora_A
+transformer.resblocks.6.attn.v_proj.w_lora_B
+transformer.resblocks.7.attn.q_proj.w_lora_A
+transformer.resblocks.7.attn.q_proj.w_lora_B
+transformer.resblocks.7.attn.k_proj.w_lora_A
+transformer.resblocks.7.attn.k_proj.w_lora_B
+transformer.resblocks.7.attn.v_proj.w_lora_A
+transformer.resblocks.7.attn.v_proj.w_lora_B
+transformer.resblocks.8.attn.q_proj.w_lora_A
+transformer.resblocks.8.attn.q_proj.w_lora_B
+transformer.resblocks.8.attn.k_proj.w_lora_A
+transformer.resblocks.8.attn.k_proj.w_lora_B
+transformer.resblocks.8.attn.v_proj.w_lora_A
+transformer.resblocks.8.attn.v_proj.w_lora_B
+transformer.resblocks.9.attn.q_proj.w_lora_A
+transformer.resblocks.9.attn.q_proj.w_lora_B
+transformer.resblocks.9.attn.k_proj.w_lora_A
+transformer.resblocks.9.attn.k_proj.w_lora_B
+transformer.resblocks.9.attn.v_proj.w_lora_A
+transformer.resblocks.9.attn.v_proj.w_lora_B
+transformer.resblocks.10.attn.q_proj.w_lora_A
+transformer.resblocks.10.attn.q_proj.w_lora_B
+transformer.resblocks.10.attn.k_proj.w_lora_A
+transformer.resblocks.10.attn.k_proj.w_lora_B
+transformer.resblocks.10.attn.v_proj.w_lora_A
+transformer.resblocks.10.attn.v_proj.w_lora_B
+transformer.resblocks.11.attn.q_proj.w_lora_A
+transformer.resblocks.11.attn.q_proj.w_lora_B
+transformer.resblocks.11.attn.k_proj.w_lora_A
+transformer.resblocks.11.attn.k_proj.w_lora_B
+transformer.resblocks.11.attn.v_proj.w_lora_A
+transformer.resblocks.11.attn.v_proj.w_lora_B
+tot=151277313, train = 552960
+===============================================
+epoch = [1/1]loss = {'net': 8.98758727312088, 'acc': 0.472}
+
+***Validation***
+udcdr == 0
+Query:painting; Gallery:real; Generalized:0
+
+Query Emb Dim:torch.Size([10911, 512]); Gallery Emb Dim:torch.Size([24387, 512])
+computing unormed situation
+tensor(0.6578, device='cuda:1') tensor(0.5793, device='cuda:1')
+computing normed situation
+tensor(0.7146, device='cuda:1') tensor(0.6510, device='cuda:1')
+un-norm situation:
+learned: map: 0.6578008532524109, prec: 0.5793387293815613
+norm situation:
+learned: map: 0.7145857810974121, prec: 0.6509737968444824
+Query:painting; Gallery:real; Generalized:1
+
+Query Emb Dim:torch.Size([10911, 512]); Gallery Emb Dim:torch.Size([36600, 512])
+computing unormed situation
+tensor(0.6150, device='cuda:1') tensor(0.5368, device='cuda:1')
+computing normed situation
+tensor(0.6681, device='cuda:1') tensor(0.6081, device='cuda:1')
+un-norm situation:
+learned: map: 0.6150009632110596, prec: 0.5368022918701172
+norm situation:
+learned: map: 0.6680731177330017, prec: 0.6080689430236816
+udcdr == 1
+
+Query Emb Dim:torch.Size([2534, 512]); Gallery Emb Dim:torch.Size([5857, 512])
+computing unormed situation
+tensor(0.6030, device='cuda:1') tensor(0.3543, device='cuda:1')
+computing normed situation
+tensor(0.6572, device='cuda:1') tensor(0.3890, device='cuda:1')
+un-norm situation:
+learned: map: 0.6030077934265137, prec: 0.35432714223861694
+norm situation:
+learned: map: 0.6572105288505554, prec: 0.38904693722724915
+Epoch Time:2m44s lr:0.0005000 mAP:0.6681 prec:0.6081
+
+
+***Training and Validation complete***
+================Parameters Settings=================
+Parameters:	Namespace(num_shots=4, position='all', params=['q', 'k', 'v'], r=6, alpha=1, dropout_rate=0.25, log_name='reviewer_1', encoder='both', visual='VPT', vptNumTokens=4, ctx_init='a photo of a', text='CoOp', textNumTokens=4, optimizer='adam', l2_reg=0.0, epochs=1, lr=0.0005, momentum=0.9, resume_dict=None, code_path='/home/user/Code/DePro', dataset_path='/data/UCDR/data', dataset='DomainNet', is_eccv_split=1, clip_backbone='ViT-B/32', CLS_NUM_TOKENS=300, DOM_NUM_TOKENS=5, debug_mode=0, dropout=0.5, seen_domain='infograph', holdout_domain='painting', gallery_domain='real', include_auxillary_domains=1, udcdr=0, image_size=224, seed=0, batch_size=50, num_workers=6, early_stop=2, log_interval=100)
+================Training Settings=================
+lr = 0.0005
+batch_size = 50
+==================================================
+Residual Attention Block 0: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 1: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 2: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 3: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 4: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 5: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 6: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 7: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 8: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 9: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 10: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 11: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 0: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 1: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 2: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 3: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 4: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 5: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 6: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 7: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 8: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 9: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 10: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 11: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+======== Context-aware Simulator Learning Setup========
+visual.transformer.resblocks.0.attn.q_proj.w_lora_A
+visual.transformer.resblocks.0.attn.q_proj.w_lora_B
+visual.transformer.resblocks.0.attn.k_proj.w_lora_A
+visual.transformer.resblocks.0.attn.k_proj.w_lora_B
+visual.transformer.resblocks.0.attn.v_proj.w_lora_A
+visual.transformer.resblocks.0.attn.v_proj.w_lora_B
+visual.transformer.resblocks.1.attn.q_proj.w_lora_A
+visual.transformer.resblocks.1.attn.q_proj.w_lora_B
+visual.transformer.resblocks.1.attn.k_proj.w_lora_A
+visual.transformer.resblocks.1.attn.k_proj.w_lora_B
+visual.transformer.resblocks.1.attn.v_proj.w_lora_A
+visual.transformer.resblocks.1.attn.v_proj.w_lora_B
+visual.transformer.resblocks.2.attn.q_proj.w_lora_A
+visual.transformer.resblocks.2.attn.q_proj.w_lora_B
+visual.transformer.resblocks.2.attn.k_proj.w_lora_A
+visual.transformer.resblocks.2.attn.k_proj.w_lora_B
+visual.transformer.resblocks.2.attn.v_proj.w_lora_A
+visual.transformer.resblocks.2.attn.v_proj.w_lora_B
+visual.transformer.resblocks.3.attn.q_proj.w_lora_A
+visual.transformer.resblocks.3.attn.q_proj.w_lora_B
+visual.transformer.resblocks.3.attn.k_proj.w_lora_A
+visual.transformer.resblocks.3.attn.k_proj.w_lora_B
+visual.transformer.resblocks.3.attn.v_proj.w_lora_A
+visual.transformer.resblocks.3.attn.v_proj.w_lora_B
+visual.transformer.resblocks.4.attn.q_proj.w_lora_A
+visual.transformer.resblocks.4.attn.q_proj.w_lora_B
+visual.transformer.resblocks.4.attn.k_proj.w_lora_A
+visual.transformer.resblocks.4.attn.k_proj.w_lora_B
+visual.transformer.resblocks.4.attn.v_proj.w_lora_A
+visual.transformer.resblocks.4.attn.v_proj.w_lora_B
+visual.transformer.resblocks.5.attn.q_proj.w_lora_A
+visual.transformer.resblocks.5.attn.q_proj.w_lora_B
+visual.transformer.resblocks.5.attn.k_proj.w_lora_A
+visual.transformer.resblocks.5.attn.k_proj.w_lora_B
+visual.transformer.resblocks.5.attn.v_proj.w_lora_A
+visual.transformer.resblocks.5.attn.v_proj.w_lora_B
+visual.transformer.resblocks.6.attn.q_proj.w_lora_A
+visual.transformer.resblocks.6.attn.q_proj.w_lora_B
+visual.transformer.resblocks.6.attn.k_proj.w_lora_A
+visual.transformer.resblocks.6.attn.k_proj.w_lora_B
+visual.transformer.resblocks.6.attn.v_proj.w_lora_A
+visual.transformer.resblocks.6.attn.v_proj.w_lora_B
+visual.transformer.resblocks.7.attn.q_proj.w_lora_A
+visual.transformer.resblocks.7.attn.q_proj.w_lora_B
+visual.transformer.resblocks.7.attn.k_proj.w_lora_A
+visual.transformer.resblocks.7.attn.k_proj.w_lora_B
+visual.transformer.resblocks.7.attn.v_proj.w_lora_A
+visual.transformer.resblocks.7.attn.v_proj.w_lora_B
+visual.transformer.resblocks.8.attn.q_proj.w_lora_A
+visual.transformer.resblocks.8.attn.q_proj.w_lora_B
+visual.transformer.resblocks.8.attn.k_proj.w_lora_A
+visual.transformer.resblocks.8.attn.k_proj.w_lora_B
+visual.transformer.resblocks.8.attn.v_proj.w_lora_A
+visual.transformer.resblocks.8.attn.v_proj.w_lora_B
+visual.transformer.resblocks.9.attn.q_proj.w_lora_A
+visual.transformer.resblocks.9.attn.q_proj.w_lora_B
+visual.transformer.resblocks.9.attn.k_proj.w_lora_A
+visual.transformer.resblocks.9.attn.k_proj.w_lora_B
+visual.transformer.resblocks.9.attn.v_proj.w_lora_A
+visual.transformer.resblocks.9.attn.v_proj.w_lora_B
+visual.transformer.resblocks.10.attn.q_proj.w_lora_A
+visual.transformer.resblocks.10.attn.q_proj.w_lora_B
+visual.transformer.resblocks.10.attn.k_proj.w_lora_A
+visual.transformer.resblocks.10.attn.k_proj.w_lora_B
+visual.transformer.resblocks.10.attn.v_proj.w_lora_A
+visual.transformer.resblocks.10.attn.v_proj.w_lora_B
+visual.transformer.resblocks.11.attn.q_proj.w_lora_A
+visual.transformer.resblocks.11.attn.q_proj.w_lora_B
+visual.transformer.resblocks.11.attn.k_proj.w_lora_A
+visual.transformer.resblocks.11.attn.k_proj.w_lora_B
+visual.transformer.resblocks.11.attn.v_proj.w_lora_A
+visual.transformer.resblocks.11.attn.v_proj.w_lora_B
+transformer.resblocks.0.attn.q_proj.w_lora_A
+transformer.resblocks.0.attn.q_proj.w_lora_B
+transformer.resblocks.0.attn.k_proj.w_lora_A
+transformer.resblocks.0.attn.k_proj.w_lora_B
+transformer.resblocks.0.attn.v_proj.w_lora_A
+transformer.resblocks.0.attn.v_proj.w_lora_B
+transformer.resblocks.1.attn.q_proj.w_lora_A
+transformer.resblocks.1.attn.q_proj.w_lora_B
+transformer.resblocks.1.attn.k_proj.w_lora_A
+transformer.resblocks.1.attn.k_proj.w_lora_B
+transformer.resblocks.1.attn.v_proj.w_lora_A
+transformer.resblocks.1.attn.v_proj.w_lora_B
+transformer.resblocks.2.attn.q_proj.w_lora_A
+transformer.resblocks.2.attn.q_proj.w_lora_B
+transformer.resblocks.2.attn.k_proj.w_lora_A
+transformer.resblocks.2.attn.k_proj.w_lora_B
+transformer.resblocks.2.attn.v_proj.w_lora_A
+transformer.resblocks.2.attn.v_proj.w_lora_B
+transformer.resblocks.3.attn.q_proj.w_lora_A
+transformer.resblocks.3.attn.q_proj.w_lora_B
+transformer.resblocks.3.attn.k_proj.w_lora_A
+transformer.resblocks.3.attn.k_proj.w_lora_B
+transformer.resblocks.3.attn.v_proj.w_lora_A
+transformer.resblocks.3.attn.v_proj.w_lora_B
+transformer.resblocks.4.attn.q_proj.w_lora_A
+transformer.resblocks.4.attn.q_proj.w_lora_B
+transformer.resblocks.4.attn.k_proj.w_lora_A
+transformer.resblocks.4.attn.k_proj.w_lora_B
+transformer.resblocks.4.attn.v_proj.w_lora_A
+transformer.resblocks.4.attn.v_proj.w_lora_B
+transformer.resblocks.5.attn.q_proj.w_lora_A
+transformer.resblocks.5.attn.q_proj.w_lora_B
+transformer.resblocks.5.attn.k_proj.w_lora_A
+transformer.resblocks.5.attn.k_proj.w_lora_B
+transformer.resblocks.5.attn.v_proj.w_lora_A
+transformer.resblocks.5.attn.v_proj.w_lora_B
+transformer.resblocks.6.attn.q_proj.w_lora_A
+transformer.resblocks.6.attn.q_proj.w_lora_B
+transformer.resblocks.6.attn.k_proj.w_lora_A
+transformer.resblocks.6.attn.k_proj.w_lora_B
+transformer.resblocks.6.attn.v_proj.w_lora_A
+transformer.resblocks.6.attn.v_proj.w_lora_B
+transformer.resblocks.7.attn.q_proj.w_lora_A
+transformer.resblocks.7.attn.q_proj.w_lora_B
+transformer.resblocks.7.attn.k_proj.w_lora_A
+transformer.resblocks.7.attn.k_proj.w_lora_B
+transformer.resblocks.7.attn.v_proj.w_lora_A
+transformer.resblocks.7.attn.v_proj.w_lora_B
+transformer.resblocks.8.attn.q_proj.w_lora_A
+transformer.resblocks.8.attn.q_proj.w_lora_B
+transformer.resblocks.8.attn.k_proj.w_lora_A
+transformer.resblocks.8.attn.k_proj.w_lora_B
+transformer.resblocks.8.attn.v_proj.w_lora_A
+transformer.resblocks.8.attn.v_proj.w_lora_B
+transformer.resblocks.9.attn.q_proj.w_lora_A
+transformer.resblocks.9.attn.q_proj.w_lora_B
+transformer.resblocks.9.attn.k_proj.w_lora_A
+transformer.resblocks.9.attn.k_proj.w_lora_B
+transformer.resblocks.9.attn.v_proj.w_lora_A
+transformer.resblocks.9.attn.v_proj.w_lora_B
+transformer.resblocks.10.attn.q_proj.w_lora_A
+transformer.resblocks.10.attn.q_proj.w_lora_B
+transformer.resblocks.10.attn.k_proj.w_lora_A
+transformer.resblocks.10.attn.k_proj.w_lora_B
+transformer.resblocks.10.attn.v_proj.w_lora_A
+transformer.resblocks.10.attn.v_proj.w_lora_B
+transformer.resblocks.11.attn.q_proj.w_lora_A
+transformer.resblocks.11.attn.q_proj.w_lora_B
+transformer.resblocks.11.attn.k_proj.w_lora_A
+transformer.resblocks.11.attn.k_proj.w_lora_B
+transformer.resblocks.11.attn.v_proj.w_lora_A
+transformer.resblocks.11.attn.v_proj.w_lora_B
+tot=151277313, train = 552960
+===============================================
+[Train] Epoch: [1/1][100/120]  Time 0.165 (0.175)  cls 2.5392 (3.0217)  contrastive 0.9345 (5.8302)  loss 3.4737 (8.8519)  
+epoch = [1/1]loss = {'net': 8.01755773027738, 'acc': 0.4573333333333333}
+
+***Validation***
+udcdr == 0
+Query:painting; Gallery:real; Generalized:0
+
+Query Emb Dim:torch.Size([10911, 512]); Gallery Emb Dim:torch.Size([24387, 512])
+computing unormed situation
+tensor(0.6162, device='cuda:1') tensor(0.4936, device='cuda:1')
+computing normed situation
+tensor(0.6823, device='cuda:1') tensor(0.6030, device='cuda:1')
+un-norm situation:
+learned: map: 0.6161710619926453, prec: 0.4935816526412964
+norm situation:
+learned: map: 0.682307243347168, prec: 0.603001058101654
+Query:painting; Gallery:real; Generalized:1
+
+Query Emb Dim:torch.Size([10911, 512]); Gallery Emb Dim:torch.Size([36600, 512])
+computing unormed situation
+tensor(0.5802, device='cuda:1') tensor(0.4607, device='cuda:1')
+computing normed situation
+tensor(0.6400, device='cuda:1') tensor(0.5633, device='cuda:1')
+un-norm situation:
+learned: map: 0.5801873803138733, prec: 0.4607212543487549
+norm situation:
+learned: map: 0.6399894952774048, prec: 0.5632673501968384
+udcdr == 1
+
+Query Emb Dim:torch.Size([2534, 512]); Gallery Emb Dim:torch.Size([5857, 512])
+computing unormed situation
+tensor(0.5556, device='cuda:1') tensor(0.2788, device='cuda:1')
+computing normed situation
+tensor(0.6335, device='cuda:1') tensor(0.3731, device='cuda:1')
+un-norm situation:
+learned: map: 0.5555993914604187, prec: 0.27878454327583313
+norm situation:
+learned: map: 0.6335453987121582, prec: 0.37309783697128296
+Epoch Time:2m54s lr:0.0005000 mAP:0.6400 prec:0.5633
+
+
+***Training and Validation complete***
+================Parameters Settings=================
+Parameters:	Namespace(num_shots=8, position='all', params=['q', 'k', 'v'], r=6, alpha=1, dropout_rate=0.25, log_name='reviewer_1', encoder='both', visual='VPT', vptNumTokens=4, ctx_init='a photo of a', text='CoOp', textNumTokens=4, optimizer='adam', l2_reg=0.0, epochs=1, lr=0.0005, momentum=0.9, resume_dict=None, code_path='/home/user/Code/DePro', dataset_path='/data/UCDR/data', dataset='DomainNet', is_eccv_split=1, clip_backbone='ViT-B/32', CLS_NUM_TOKENS=300, DOM_NUM_TOKENS=5, debug_mode=0, dropout=0.5, seen_domain='infograph', holdout_domain='painting', gallery_domain='real', include_auxillary_domains=1, udcdr=0, image_size=224, seed=0, batch_size=50, num_workers=6, early_stop=2, log_interval=100)
+================Training Settings=================
+lr = 0.0005
+batch_size = 50
+==================================================
+Residual Attention Block 0: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 1: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 2: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 3: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 4: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 5: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 6: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 7: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 8: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 9: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 10: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 11: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 0: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 1: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 2: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 3: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 4: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 5: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 6: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 7: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 8: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 9: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 10: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 11: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+======== Context-aware Simulator Learning Setup========
+visual.transformer.resblocks.0.attn.q_proj.w_lora_A
+visual.transformer.resblocks.0.attn.q_proj.w_lora_B
+visual.transformer.resblocks.0.attn.k_proj.w_lora_A
+visual.transformer.resblocks.0.attn.k_proj.w_lora_B
+visual.transformer.resblocks.0.attn.v_proj.w_lora_A
+visual.transformer.resblocks.0.attn.v_proj.w_lora_B
+visual.transformer.resblocks.1.attn.q_proj.w_lora_A
+visual.transformer.resblocks.1.attn.q_proj.w_lora_B
+visual.transformer.resblocks.1.attn.k_proj.w_lora_A
+visual.transformer.resblocks.1.attn.k_proj.w_lora_B
+visual.transformer.resblocks.1.attn.v_proj.w_lora_A
+visual.transformer.resblocks.1.attn.v_proj.w_lora_B
+visual.transformer.resblocks.2.attn.q_proj.w_lora_A
+visual.transformer.resblocks.2.attn.q_proj.w_lora_B
+visual.transformer.resblocks.2.attn.k_proj.w_lora_A
+visual.transformer.resblocks.2.attn.k_proj.w_lora_B
+visual.transformer.resblocks.2.attn.v_proj.w_lora_A
+visual.transformer.resblocks.2.attn.v_proj.w_lora_B
+visual.transformer.resblocks.3.attn.q_proj.w_lora_A
+visual.transformer.resblocks.3.attn.q_proj.w_lora_B
+visual.transformer.resblocks.3.attn.k_proj.w_lora_A
+visual.transformer.resblocks.3.attn.k_proj.w_lora_B
+visual.transformer.resblocks.3.attn.v_proj.w_lora_A
+visual.transformer.resblocks.3.attn.v_proj.w_lora_B
+visual.transformer.resblocks.4.attn.q_proj.w_lora_A
+visual.transformer.resblocks.4.attn.q_proj.w_lora_B
+visual.transformer.resblocks.4.attn.k_proj.w_lora_A
+visual.transformer.resblocks.4.attn.k_proj.w_lora_B
+visual.transformer.resblocks.4.attn.v_proj.w_lora_A
+visual.transformer.resblocks.4.attn.v_proj.w_lora_B
+visual.transformer.resblocks.5.attn.q_proj.w_lora_A
+visual.transformer.resblocks.5.attn.q_proj.w_lora_B
+visual.transformer.resblocks.5.attn.k_proj.w_lora_A
+visual.transformer.resblocks.5.attn.k_proj.w_lora_B
+visual.transformer.resblocks.5.attn.v_proj.w_lora_A
+visual.transformer.resblocks.5.attn.v_proj.w_lora_B
+visual.transformer.resblocks.6.attn.q_proj.w_lora_A
+visual.transformer.resblocks.6.attn.q_proj.w_lora_B
+visual.transformer.resblocks.6.attn.k_proj.w_lora_A
+visual.transformer.resblocks.6.attn.k_proj.w_lora_B
+visual.transformer.resblocks.6.attn.v_proj.w_lora_A
+visual.transformer.resblocks.6.attn.v_proj.w_lora_B
+visual.transformer.resblocks.7.attn.q_proj.w_lora_A
+visual.transformer.resblocks.7.attn.q_proj.w_lora_B
+visual.transformer.resblocks.7.attn.k_proj.w_lora_A
+visual.transformer.resblocks.7.attn.k_proj.w_lora_B
+visual.transformer.resblocks.7.attn.v_proj.w_lora_A
+visual.transformer.resblocks.7.attn.v_proj.w_lora_B
+visual.transformer.resblocks.8.attn.q_proj.w_lora_A
+visual.transformer.resblocks.8.attn.q_proj.w_lora_B
+visual.transformer.resblocks.8.attn.k_proj.w_lora_A
+visual.transformer.resblocks.8.attn.k_proj.w_lora_B
+visual.transformer.resblocks.8.attn.v_proj.w_lora_A
+visual.transformer.resblocks.8.attn.v_proj.w_lora_B
+visual.transformer.resblocks.9.attn.q_proj.w_lora_A
+visual.transformer.resblocks.9.attn.q_proj.w_lora_B
+visual.transformer.resblocks.9.attn.k_proj.w_lora_A
+visual.transformer.resblocks.9.attn.k_proj.w_lora_B
+visual.transformer.resblocks.9.attn.v_proj.w_lora_A
+visual.transformer.resblocks.9.attn.v_proj.w_lora_B
+visual.transformer.resblocks.10.attn.q_proj.w_lora_A
+visual.transformer.resblocks.10.attn.q_proj.w_lora_B
+visual.transformer.resblocks.10.attn.k_proj.w_lora_A
+visual.transformer.resblocks.10.attn.k_proj.w_lora_B
+visual.transformer.resblocks.10.attn.v_proj.w_lora_A
+visual.transformer.resblocks.10.attn.v_proj.w_lora_B
+visual.transformer.resblocks.11.attn.q_proj.w_lora_A
+visual.transformer.resblocks.11.attn.q_proj.w_lora_B
+visual.transformer.resblocks.11.attn.k_proj.w_lora_A
+visual.transformer.resblocks.11.attn.k_proj.w_lora_B
+visual.transformer.resblocks.11.attn.v_proj.w_lora_A
+visual.transformer.resblocks.11.attn.v_proj.w_lora_B
+transformer.resblocks.0.attn.q_proj.w_lora_A
+transformer.resblocks.0.attn.q_proj.w_lora_B
+transformer.resblocks.0.attn.k_proj.w_lora_A
+transformer.resblocks.0.attn.k_proj.w_lora_B
+transformer.resblocks.0.attn.v_proj.w_lora_A
+transformer.resblocks.0.attn.v_proj.w_lora_B
+transformer.resblocks.1.attn.q_proj.w_lora_A
+transformer.resblocks.1.attn.q_proj.w_lora_B
+transformer.resblocks.1.attn.k_proj.w_lora_A
+transformer.resblocks.1.attn.k_proj.w_lora_B
+transformer.resblocks.1.attn.v_proj.w_lora_A
+transformer.resblocks.1.attn.v_proj.w_lora_B
+transformer.resblocks.2.attn.q_proj.w_lora_A
+transformer.resblocks.2.attn.q_proj.w_lora_B
+transformer.resblocks.2.attn.k_proj.w_lora_A
+transformer.resblocks.2.attn.k_proj.w_lora_B
+transformer.resblocks.2.attn.v_proj.w_lora_A
+transformer.resblocks.2.attn.v_proj.w_lora_B
+transformer.resblocks.3.attn.q_proj.w_lora_A
+transformer.resblocks.3.attn.q_proj.w_lora_B
+transformer.resblocks.3.attn.k_proj.w_lora_A
+transformer.resblocks.3.attn.k_proj.w_lora_B
+transformer.resblocks.3.attn.v_proj.w_lora_A
+transformer.resblocks.3.attn.v_proj.w_lora_B
+transformer.resblocks.4.attn.q_proj.w_lora_A
+transformer.resblocks.4.attn.q_proj.w_lora_B
+transformer.resblocks.4.attn.k_proj.w_lora_A
+transformer.resblocks.4.attn.k_proj.w_lora_B
+transformer.resblocks.4.attn.v_proj.w_lora_A
+transformer.resblocks.4.attn.v_proj.w_lora_B
+transformer.resblocks.5.attn.q_proj.w_lora_A
+transformer.resblocks.5.attn.q_proj.w_lora_B
+transformer.resblocks.5.attn.k_proj.w_lora_A
+transformer.resblocks.5.attn.k_proj.w_lora_B
+transformer.resblocks.5.attn.v_proj.w_lora_A
+transformer.resblocks.5.attn.v_proj.w_lora_B
+transformer.resblocks.6.attn.q_proj.w_lora_A
+transformer.resblocks.6.attn.q_proj.w_lora_B
+transformer.resblocks.6.attn.k_proj.w_lora_A
+transformer.resblocks.6.attn.k_proj.w_lora_B
+transformer.resblocks.6.attn.v_proj.w_lora_A
+transformer.resblocks.6.attn.v_proj.w_lora_B
+transformer.resblocks.7.attn.q_proj.w_lora_A
+transformer.resblocks.7.attn.q_proj.w_lora_B
+transformer.resblocks.7.attn.k_proj.w_lora_A
+transformer.resblocks.7.attn.k_proj.w_lora_B
+transformer.resblocks.7.attn.v_proj.w_lora_A
+transformer.resblocks.7.attn.v_proj.w_lora_B
+transformer.resblocks.8.attn.q_proj.w_lora_A
+transformer.resblocks.8.attn.q_proj.w_lora_B
+transformer.resblocks.8.attn.k_proj.w_lora_A
+transformer.resblocks.8.attn.k_proj.w_lora_B
+transformer.resblocks.8.attn.v_proj.w_lora_A
+transformer.resblocks.8.attn.v_proj.w_lora_B
+transformer.resblocks.9.attn.q_proj.w_lora_A
+transformer.resblocks.9.attn.q_proj.w_lora_B
+transformer.resblocks.9.attn.k_proj.w_lora_A
+transformer.resblocks.9.attn.k_proj.w_lora_B
+transformer.resblocks.9.attn.v_proj.w_lora_A
+transformer.resblocks.9.attn.v_proj.w_lora_B
+transformer.resblocks.10.attn.q_proj.w_lora_A
+transformer.resblocks.10.attn.q_proj.w_lora_B
+transformer.resblocks.10.attn.k_proj.w_lora_A
+transformer.resblocks.10.attn.k_proj.w_lora_B
+transformer.resblocks.10.attn.v_proj.w_lora_A
+transformer.resblocks.10.attn.v_proj.w_lora_B
+transformer.resblocks.11.attn.q_proj.w_lora_A
+transformer.resblocks.11.attn.q_proj.w_lora_B
+transformer.resblocks.11.attn.k_proj.w_lora_A
+transformer.resblocks.11.attn.k_proj.w_lora_B
+transformer.resblocks.11.attn.v_proj.w_lora_A
+transformer.resblocks.11.attn.v_proj.w_lora_B
+tot=151277313, train = 552960
+===============================================
+[Train] Epoch: [1/1][100/240]  Time 0.166 (0.175)  cls 2.2575 (3.1089)  contrastive 1.1724 (6.0379)  loss 3.4299 (9.1468)  
+[Train] Epoch: [1/1][200/240]  Time 0.166 (0.170)  cls 2.3558 (2.8481)  contrastive 0.9970 (3.5023)  loss 3.3528 (6.3504)  
+epoch = [1/1]loss = {'net': 5.839343503117561, 'acc': 0.47125}
+
+***Validation***
+udcdr == 0
+Query:painting; Gallery:real; Generalized:0
+
+Query Emb Dim:torch.Size([10911, 512]); Gallery Emb Dim:torch.Size([24387, 512])
+computing unormed situation
+tensor(0.6373, device='cuda:1') tensor(0.5231, device='cuda:1')
+computing normed situation
+tensor(0.6913, device='cuda:1') tensor(0.6124, device='cuda:1')
+un-norm situation:
+learned: map: 0.6372702717781067, prec: 0.5231362581253052
+norm situation:
+learned: map: 0.6913289427757263, prec: 0.6123737096786499
+Query:painting; Gallery:real; Generalized:1
+
+Query Emb Dim:torch.Size([10911, 512]); Gallery Emb Dim:torch.Size([36600, 512])
+computing unormed situation
+tensor(0.6014, device='cuda:1') tensor(0.4903, device='cuda:1')
+computing normed situation
+tensor(0.6494, device='cuda:1') tensor(0.5742, device='cuda:1')
+un-norm situation:
+learned: map: 0.6013996005058289, prec: 0.49028000235557556
+norm situation:
+learned: map: 0.649394154548645, prec: 0.5741686820983887
+udcdr == 1
+
+Query Emb Dim:torch.Size([2534, 512]); Gallery Emb Dim:torch.Size([5857, 512])
+computing unormed situation
+tensor(0.5815, device='cuda:1') tensor(0.3056, device='cuda:1')
+computing normed situation
+tensor(0.6463, device='cuda:1') tensor(0.3861, device='cuda:1')
+un-norm situation:
+learned: map: 0.5814571976661682, prec: 0.3056392967700958
+norm situation:
+learned: map: 0.6462941765785217, prec: 0.38609904050827026
+Epoch Time:3m13s lr:0.0005000 mAP:0.6494 prec:0.5742
+
+
+***Training and Validation complete***
+================Parameters Settings=================
+Parameters:	Namespace(num_shots=16, position='all', params=['q', 'k', 'v'], r=6, alpha=1, dropout_rate=0.25, log_name='reviewer_1', encoder='both', visual='VPT', vptNumTokens=4, ctx_init='a photo of a', text='CoOp', textNumTokens=4, optimizer='adam', l2_reg=0.0, epochs=1, lr=0.0005, momentum=0.9, resume_dict=None, code_path='/home/user/Code/DePro', dataset_path='/data/UCDR/data', dataset='DomainNet', is_eccv_split=1, clip_backbone='ViT-B/32', CLS_NUM_TOKENS=300, DOM_NUM_TOKENS=5, debug_mode=0, dropout=0.5, seen_domain='infograph', holdout_domain='painting', gallery_domain='real', include_auxillary_domains=1, udcdr=0, image_size=224, seed=0, batch_size=50, num_workers=6, early_stop=2, log_interval=100)
+================Training Settings=================
+lr = 0.0005
+batch_size = 50
+==================================================
+Residual Attention Block 0: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 1: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 2: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 3: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 4: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 5: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 6: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 7: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 8: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 9: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 10: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 11: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+  )
+  (ln_1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=512, out_features=2048, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=2048, out_features=512, bias=True)
+  )
+  (ln_2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 0: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 1: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 2: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 3: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 4: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 5: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 6: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 7: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 8: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 9: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 10: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+Residual Attention Block 11: ResidualAttentionBlock(
+  (attn): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=768, out_features=768, bias=True)
+  )
+  (ln_1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+  (mlp): Sequential(
+    (c_fc): Linear(in_features=768, out_features=3072, bias=True)
+    (gelu): QuickGELU()
+    (c_proj): Linear(in_features=3072, out_features=768, bias=True)
+  )
+  (ln_2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+)
+======== Context-aware Simulator Learning Setup========
+visual.transformer.resblocks.0.attn.q_proj.w_lora_A
+visual.transformer.resblocks.0.attn.q_proj.w_lora_B
+visual.transformer.resblocks.0.attn.k_proj.w_lora_A
+visual.transformer.resblocks.0.attn.k_proj.w_lora_B
+visual.transformer.resblocks.0.attn.v_proj.w_lora_A
+visual.transformer.resblocks.0.attn.v_proj.w_lora_B
+visual.transformer.resblocks.1.attn.q_proj.w_lora_A
+visual.transformer.resblocks.1.attn.q_proj.w_lora_B
+visual.transformer.resblocks.1.attn.k_proj.w_lora_A
+visual.transformer.resblocks.1.attn.k_proj.w_lora_B
+visual.transformer.resblocks.1.attn.v_proj.w_lora_A
+visual.transformer.resblocks.1.attn.v_proj.w_lora_B
+visual.transformer.resblocks.2.attn.q_proj.w_lora_A
+visual.transformer.resblocks.2.attn.q_proj.w_lora_B
+visual.transformer.resblocks.2.attn.k_proj.w_lora_A
+visual.transformer.resblocks.2.attn.k_proj.w_lora_B
+visual.transformer.resblocks.2.attn.v_proj.w_lora_A
+visual.transformer.resblocks.2.attn.v_proj.w_lora_B
+visual.transformer.resblocks.3.attn.q_proj.w_lora_A
+visual.transformer.resblocks.3.attn.q_proj.w_lora_B
+visual.transformer.resblocks.3.attn.k_proj.w_lora_A
+visual.transformer.resblocks.3.attn.k_proj.w_lora_B
+visual.transformer.resblocks.3.attn.v_proj.w_lora_A
+visual.transformer.resblocks.3.attn.v_proj.w_lora_B
+visual.transformer.resblocks.4.attn.q_proj.w_lora_A
+visual.transformer.resblocks.4.attn.q_proj.w_lora_B
+visual.transformer.resblocks.4.attn.k_proj.w_lora_A
+visual.transformer.resblocks.4.attn.k_proj.w_lora_B
+visual.transformer.resblocks.4.attn.v_proj.w_lora_A
+visual.transformer.resblocks.4.attn.v_proj.w_lora_B
+visual.transformer.resblocks.5.attn.q_proj.w_lora_A
+visual.transformer.resblocks.5.attn.q_proj.w_lora_B
+visual.transformer.resblocks.5.attn.k_proj.w_lora_A
+visual.transformer.resblocks.5.attn.k_proj.w_lora_B
+visual.transformer.resblocks.5.attn.v_proj.w_lora_A
+visual.transformer.resblocks.5.attn.v_proj.w_lora_B
+visual.transformer.resblocks.6.attn.q_proj.w_lora_A
+visual.transformer.resblocks.6.attn.q_proj.w_lora_B
+visual.transformer.resblocks.6.attn.k_proj.w_lora_A
+visual.transformer.resblocks.6.attn.k_proj.w_lora_B
+visual.transformer.resblocks.6.attn.v_proj.w_lora_A
+visual.transformer.resblocks.6.attn.v_proj.w_lora_B
+visual.transformer.resblocks.7.attn.q_proj.w_lora_A
+visual.transformer.resblocks.7.attn.q_proj.w_lora_B
+visual.transformer.resblocks.7.attn.k_proj.w_lora_A
+visual.transformer.resblocks.7.attn.k_proj.w_lora_B
+visual.transformer.resblocks.7.attn.v_proj.w_lora_A
+visual.transformer.resblocks.7.attn.v_proj.w_lora_B
+visual.transformer.resblocks.8.attn.q_proj.w_lora_A
+visual.transformer.resblocks.8.attn.q_proj.w_lora_B
+visual.transformer.resblocks.8.attn.k_proj.w_lora_A
+visual.transformer.resblocks.8.attn.k_proj.w_lora_B
+visual.transformer.resblocks.8.attn.v_proj.w_lora_A
+visual.transformer.resblocks.8.attn.v_proj.w_lora_B
+visual.transformer.resblocks.9.attn.q_proj.w_lora_A
+visual.transformer.resblocks.9.attn.q_proj.w_lora_B
+visual.transformer.resblocks.9.attn.k_proj.w_lora_A
+visual.transformer.resblocks.9.attn.k_proj.w_lora_B
+visual.transformer.resblocks.9.attn.v_proj.w_lora_A
+visual.transformer.resblocks.9.attn.v_proj.w_lora_B
+visual.transformer.resblocks.10.attn.q_proj.w_lora_A
+visual.transformer.resblocks.10.attn.q_proj.w_lora_B
+visual.transformer.resblocks.10.attn.k_proj.w_lora_A
+visual.transformer.resblocks.10.attn.k_proj.w_lora_B
+visual.transformer.resblocks.10.attn.v_proj.w_lora_A
+visual.transformer.resblocks.10.attn.v_proj.w_lora_B
+visual.transformer.resblocks.11.attn.q_proj.w_lora_A
+visual.transformer.resblocks.11.attn.q_proj.w_lora_B
+visual.transformer.resblocks.11.attn.k_proj.w_lora_A
+visual.transformer.resblocks.11.attn.k_proj.w_lora_B
+visual.transformer.resblocks.11.attn.v_proj.w_lora_A
+visual.transformer.resblocks.11.attn.v_proj.w_lora_B
+transformer.resblocks.0.attn.q_proj.w_lora_A
+transformer.resblocks.0.attn.q_proj.w_lora_B
+transformer.resblocks.0.attn.k_proj.w_lora_A
+transformer.resblocks.0.attn.k_proj.w_lora_B
+transformer.resblocks.0.attn.v_proj.w_lora_A
+transformer.resblocks.0.attn.v_proj.w_lora_B
+transformer.resblocks.1.attn.q_proj.w_lora_A
+transformer.resblocks.1.attn.q_proj.w_lora_B
+transformer.resblocks.1.attn.k_proj.w_lora_A
+transformer.resblocks.1.attn.k_proj.w_lora_B
+transformer.resblocks.1.attn.v_proj.w_lora_A
+transformer.resblocks.1.attn.v_proj.w_lora_B
+transformer.resblocks.2.attn.q_proj.w_lora_A
+transformer.resblocks.2.attn.q_proj.w_lora_B
+transformer.resblocks.2.attn.k_proj.w_lora_A
+transformer.resblocks.2.attn.k_proj.w_lora_B
+transformer.resblocks.2.attn.v_proj.w_lora_A
+transformer.resblocks.2.attn.v_proj.w_lora_B
+transformer.resblocks.3.attn.q_proj.w_lora_A
+transformer.resblocks.3.attn.q_proj.w_lora_B
+transformer.resblocks.3.attn.k_proj.w_lora_A
+transformer.resblocks.3.attn.k_proj.w_lora_B
+transformer.resblocks.3.attn.v_proj.w_lora_A
+transformer.resblocks.3.attn.v_proj.w_lora_B
+transformer.resblocks.4.attn.q_proj.w_lora_A
+transformer.resblocks.4.attn.q_proj.w_lora_B
+transformer.resblocks.4.attn.k_proj.w_lora_A
+transformer.resblocks.4.attn.k_proj.w_lora_B
+transformer.resblocks.4.attn.v_proj.w_lora_A
+transformer.resblocks.4.attn.v_proj.w_lora_B
+transformer.resblocks.5.attn.q_proj.w_lora_A
+transformer.resblocks.5.attn.q_proj.w_lora_B
+transformer.resblocks.5.attn.k_proj.w_lora_A
+transformer.resblocks.5.attn.k_proj.w_lora_B
+transformer.resblocks.5.attn.v_proj.w_lora_A
+transformer.resblocks.5.attn.v_proj.w_lora_B
+transformer.resblocks.6.attn.q_proj.w_lora_A
+transformer.resblocks.6.attn.q_proj.w_lora_B
+transformer.resblocks.6.attn.k_proj.w_lora_A
+transformer.resblocks.6.attn.k_proj.w_lora_B
+transformer.resblocks.6.attn.v_proj.w_lora_A
+transformer.resblocks.6.attn.v_proj.w_lora_B
+transformer.resblocks.7.attn.q_proj.w_lora_A
+transformer.resblocks.7.attn.q_proj.w_lora_B
+transformer.resblocks.7.attn.k_proj.w_lora_A
+transformer.resblocks.7.attn.k_proj.w_lora_B
+transformer.resblocks.7.attn.v_proj.w_lora_A
+transformer.resblocks.7.attn.v_proj.w_lora_B
+transformer.resblocks.8.attn.q_proj.w_lora_A
+transformer.resblocks.8.attn.q_proj.w_lora_B
+transformer.resblocks.8.attn.k_proj.w_lora_A
+transformer.resblocks.8.attn.k_proj.w_lora_B
+transformer.resblocks.8.attn.v_proj.w_lora_A
+transformer.resblocks.8.attn.v_proj.w_lora_B
+transformer.resblocks.9.attn.q_proj.w_lora_A
+transformer.resblocks.9.attn.q_proj.w_lora_B
+transformer.resblocks.9.attn.k_proj.w_lora_A
+transformer.resblocks.9.attn.k_proj.w_lora_B
+transformer.resblocks.9.attn.v_proj.w_lora_A
+transformer.resblocks.9.attn.v_proj.w_lora_B
+transformer.resblocks.10.attn.q_proj.w_lora_A
+transformer.resblocks.10.attn.q_proj.w_lora_B
+transformer.resblocks.10.attn.k_proj.w_lora_A
+transformer.resblocks.10.attn.k_proj.w_lora_B
+transformer.resblocks.10.attn.v_proj.w_lora_A
+transformer.resblocks.10.attn.v_proj.w_lora_B
+transformer.resblocks.11.attn.q_proj.w_lora_A
+transformer.resblocks.11.attn.q_proj.w_lora_B
+transformer.resblocks.11.attn.k_proj.w_lora_A
+transformer.resblocks.11.attn.k_proj.w_lora_B
+transformer.resblocks.11.attn.v_proj.w_lora_A
+transformer.resblocks.11.attn.v_proj.w_lora_B
+tot=151277313, train = 552960
+===============================================
+[Train] Epoch: [1/1][100/478]  Time 0.165 (0.175)  cls 1.9622 (3.0491)  contrastive 0.7733 (5.8279)  loss 2.7354 (8.8771)  
+[Train] Epoch: [1/1][200/478]  Time 0.166 (0.170)  cls 2.8749 (2.8095)  contrastive 1.1735 (3.4100)  loss 4.0484 (6.2195)  
+[Train] Epoch: [1/1][300/478]  Time 0.165 (0.169)  cls 2.4237 (2.7040)  contrastive 0.8489 (2.5596)  loss 3.2725 (5.2637)  
+[Train] Epoch: [1/1][400/478]  Time 0.166 (0.168)  cls 2.9140 (2.6348)  contrastive 1.3048 (2.1136)  loss 4.2189 (4.7484)  
+epoch = [1/1]loss = {'net': 4.493927119964331, 'acc': 0.48881909547738694}
+
+***Validation***
+udcdr == 0
+Query:painting; Gallery:real; Generalized:0
+
+Query Emb Dim:torch.Size([10911, 512]); Gallery Emb Dim:torch.Size([24387, 512])
+computing unormed situation
+tensor(0.6466, device='cuda:1') tensor(0.5371, device='cuda:1')
+computing normed situation
+tensor(0.6979, device='cuda:1') tensor(0.6195, device='cuda:1')
+un-norm situation:
+learned: map: 0.6465603709220886, prec: 0.5371102094650269
+norm situation:
+learned: map: 0.6979421377182007, prec: 0.6194528341293335
+Query:painting; Gallery:real; Generalized:1
+
+Query Emb Dim:torch.Size([10911, 512]); Gallery Emb Dim:torch.Size([36600, 512])
+computing unormed situation
+tensor(0.6112, device='cuda:1') tensor(0.5045, device='cuda:1')
+computing normed situation
+tensor(0.6573, device='cuda:1') tensor(0.5830, device='cuda:1')
+un-norm situation:
+learned: map: 0.611226499080658, prec: 0.5045270919799805
+norm situation:
+learned: map: 0.6573054790496826, prec: 0.5830051898956299
+udcdr == 1
+
+Query Emb Dim:torch.Size([2534, 512]); Gallery Emb Dim:torch.Size([5857, 512])
+computing unormed situation
+tensor(0.6017, device='cuda:1') tensor(0.3250, device='cuda:1')
+computing normed situation
+tensor(0.6652, device='cuda:1') tensor(0.3998, device='cuda:1')
+un-norm situation:
+learned: map: 0.6016539931297302, prec: 0.3250078856945038
+norm situation:
+learned: map: 0.6651631593704224, prec: 0.39983031153678894
+Epoch Time:3m53s lr:0.0005000 mAP:0.6573 prec:0.5830
+
+
+***Training and Validation complete***
