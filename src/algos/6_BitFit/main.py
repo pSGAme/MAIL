@@ -1,15 +1,14 @@
 import sys
 import torch
-import os 
-code_path = '/home/user/Code/DePro'
+import os
+code_path = '/home/user/Code/MAIL'
+data_path = '/data/UCDR/data'
 sys.path.append(code_path)
 sys.path.append(os.path.join(code_path, "src"))
 print(sys.path)
 # user defined
 
 from trainer import Trainer
-
-# from FLOPS import Trainer
 import argparse
 
 
@@ -17,12 +16,22 @@ class Options:
 
     def __init__(self):
         # Parse options for processing
-        parser = argparse.ArgumentParser(description='UCDR_MAPLE')
+        parser = argparse.ArgumentParser(description='MAIL')
 
         parser.add_argument('-alpha', '--alpha', type=float, default=0.05, metavar='LR',
                             help='Initial learning rate for optimizer & scheduler')
         parser.add_argument('-log_name', '--log_name', type=str, default='log',
                             help='log name :)')
+
+        parser.add_argument('--num_shots', default=2, type=int)
+        parser.add_argument('--d', default=8, type=int)
+        parser.add_argument('--t', default=1, type=int)
+        parser.add_argument('--ln', default=1, type=int)
+        parser.add_argument('-lr', '--lr', type=float, default=0.0002, metavar='LR',
+                            help='Initial learning rate for optimizer & scheduler')
+        parser.add_argument('-trick', '--trick', type=int, default=1,
+                            help='Initial learning rate for optimizer & scheduler')
+        parser.add_argument('--flag', default=1, type=int)
 
         # visual prompt
         parser.add_argument('-visual', '--visual', default="VPT", choices=['VPT', 'None'],
@@ -44,23 +53,27 @@ class Options:
                             help='maple depth')
         parser.add_argument('-maple_length', '--maple_length', default=4, type=int,
                             help='prompt length')
+        parser.add_argument('-start_layer', '--start_layer', default=1, type=int,
+                            help='the start of mail layer')
+        parser.add_argument('-end_layer', '--end_layer', default=12, type=int,
+                            help='the end of mail layer')
+        parser.add_argument('-ivlu_start_layer', '--ivlu_start_layer', default=1, type=int,
+                            help='the start of ivlu layer')
+        parser.add_argument('-ivlu_end_layer', '--ivlu_end_layer', default=12, type=int,
+                            help='the end of ivlu layer')
         parser.add_argument('-ivlp', '--ivlp', choices=[0, 1], default=0, type=int,
                             help='whether to conduct independent prompts learning')
-        # optimizer
+        #
         parser.add_argument('-opt', '--optimizer', type=str, choices=['sgd', 'adam'], default='adam')
-        parser.add_argument('-l2', '--l2_reg', default=0.0, type=float, help='L2 Weight Decay for optimizer')
+        parser.add_argument('-l2', '--l2_reg', default=5e-4, type=float, help='L2 Weight Decay for optimizer')
         parser.add_argument('-e', '--epochs', type=int, default=1, metavar='N',
                             help='Number of epochs to train')
-        parser.add_argument('-lr', '--lr', type=float, default=0.002, metavar='LR',
-                            help='Initial learning rate for optimizer & scheduler')
+
         parser.add_argument('-mom', '--momentum', type=float, default=0.9, metavar='M', help='SGD momentum')
         parser.add_argument('-resume', '--resume_dict', type=str, help='checkpoint file to resume training from')
 
         # data_root
-
-        code_path = '/home/user/Code/DePro'
         parser.add_argument('-code_path', '--code_path', default=code_path, type=str, help='code path of UCDR')
-        data_path = '/data/UCDR/data'
         parser.add_argument('-dataset_path', '--dataset_path', default=data_path, type=str,
                             help='Path of three datasets')
 
@@ -69,7 +82,7 @@ class Options:
                             if dataset="Sketchy"')
         # CLIP
         parser.add_argument('-clip_bb', '--clip_backbone', type=str,
-                            choices=['RN50x4', 'RN50x16', 'ViT-B/16', 'ViT-B/32'], default='ViT-B/32',
+                            choices=['RN50x4', 'RN50x16', 'ViT-B/16', 'ViT-B/32', 'ViT-L/14'], default='ViT-B/32',
                             help='choose clip backbone')
         parser.add_argument('-CLS_NUM_TOKENS', '--CLS_NUM_TOKENS', default=300, type=int,
                             help='number of Semantic Prompt Units, usually equals to the number of classes')
@@ -97,14 +110,14 @@ class Options:
 
         # Model parameters
         parser.add_argument('-seed', '--seed', type=int, default=0)
-        parser.add_argument('-bs', '--batch_size', default=50, type=int)
+        parser.add_argument('-bs', '--batch_size', default=60, type=int)
         parser.add_argument('-nw', '--num_workers', type=int, default=6, help='Number of workers in data loader')
 
         # Checkpoint parameters
         parser.add_argument('-es', '--early_stop', type=int, default=2, help='Early stopping epochs.')
 
         # I/O parameters
-        parser.add_argument('-log', '--log_interval', type=int, default=100, metavar='N',
+        parser.add_argument('-log', '--log_interval', type=int, default=50, metavar='N',
                             help='How many batches to wait before logging training status')
 
         self.parser = parser

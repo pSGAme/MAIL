@@ -175,7 +175,7 @@ class Trainer:
                       '_bs-' + str(args.batch_size) + '_lr-' + str(args.lr)
 
         # exit(0)
-        self.path_cp = os.path.join(args.code_path, "src/algos/8_LoRA/log", args.dataset,
+        self.path_cp = os.path.join(os.getcwd(), "log", args.dataset,
                                     self.save_folder_name)
         log_file = os.path.join(self.path_cp, args.log_name + ".txt")
         # Redirect print to both console and log file
@@ -208,13 +208,13 @@ class Trainer:
         print("======== Context-aware Simulator Learning Setup========")
         train_part = 0
         for name, param in self.clip_model.named_parameters():
-            # if name in ['text_projection', 'visual.proj']:
-            #     param.requires_grad_(True)
             if param.requires_grad:
                 print(name)
                 train_part += param.numel()
+            if name in ['text_projection', 'visual.proj']:
+                param.requires_grad_(True)  # no if ucdr
 
-        print(f"tot={tot}, train = {train_part}")
+        print(f"tot={tot}, train = {train_part} (with no proj)")
         # NOTE: only give prompt_learner to the optimizer
         optimizer = None
         if self.args.optimizer == 'sgd':

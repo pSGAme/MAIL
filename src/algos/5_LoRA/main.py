@@ -1,7 +1,8 @@
 import sys
 import torch
 import os 
-code_path = '/home/user/Code/DePro'
+code_path = '/home/user/Code/MAIL'
+data_path = '/data/UCDR/data'
 sys.path.append(code_path)
 sys.path.append(os.path.join(code_path, "src"))
 print(sys.path)
@@ -17,14 +18,14 @@ class Options:
 
     def __init__(self):
         # Parse options for processing
-        parser = argparse.ArgumentParser(description='UCDR_MAPLE')
+        parser = argparse.ArgumentParser(description='LoRA')
         parser.add_argument('--num_shots', default=2, type=int)
         parser.add_argument('--position', type=str, default='all',
                             choices=['bottom', 'mid', 'up', 'half-up', 'half-bottom', 'all', 'top3'],
                             help='where to put the LoRA modules')
         parser.add_argument('--params', metavar='N', type=str, nargs='+', default=['q', 'k', 'v'],
                             help='list of attention matrices where putting a LoRA')
-        parser.add_argument('--r', default=6, type=int, help='the rank of the low-rank matrices')
+        parser.add_argument('--r', default=16, type=int, help='the rank of the low-rank matrices')
         parser.add_argument('--alpha', default=1, type=int, help='scaling (see LoRA paper)')
         parser.add_argument('--dropout_rate', default=0.25, type=float,
                             help='dropout rate applied before the LoRA module')
@@ -62,9 +63,8 @@ class Options:
 
         # data_root
 
-        code_path = '/home/user/Code/DePro'
+
         parser.add_argument('-code_path', '--code_path', default=code_path, type=str, help='code path of UCDR')
-        data_path = '/data/UCDR/data'
         parser.add_argument('-dataset_path', '--dataset_path', default=data_path, type=str,
                             help='Path of three datasets')
 
