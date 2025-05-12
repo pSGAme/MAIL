@@ -91,7 +91,7 @@ sh run.sh
 ### 4: AdaptFormer:
 
 ```bash
-cd ./src/algos/2_MMA
+cd ./src/algos/4_AdaptFormer
 sh run.sh
 ```
 
