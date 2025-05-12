@@ -209,26 +209,17 @@ class Trainer:
         for name, param in self.model.named_parameters():
             for str in train_parameters:
                 flag = 0
-                # if self.args.ln and ("ln_pre" in name or "ln_final" in name or "ln_post" in name):
-                #     print("LayerNorm: " + name)  # 36246528
-                #     param.requires_grad_(True)
-                #     train_part += param.numel()
-                #     flag = 1
-                #     break
                 if name.startswith(str) == True:
                     param.requires_grad_(True)
                     if str not in ['text_encoder.text_projection', 'visual_encoder.proj']:
                         train_part += param.numel()
                     flag = 1
                     break
-            # if "bias" in name:
-            #     flag = 1
-            #     train_part += param.numel()
             if flag == 0:
                 param.requires_grad_(False)
             else:
                 print(name)
-        print(f"tot={tot}, train = {train_part}")
+        print(f"tot={tot}, train = {train_part} (with no proj)")
         # NOTE: only give prompt_learner to the optimizer
         optimizer = None
         if self.args.optimizer=='sgd':

@@ -18,7 +18,7 @@ class Options:
     def __init__(self):
         # Parse options for processing
 
-        parser = argparse.ArgumentParser(description='UCDR_MAPLE')
+        parser = argparse.ArgumentParser(description='MAPLE')
         parser.add_argument('-log_name', '--log_name', type=str, default='log',
                             help='log name :)')
         parser.add_argument('--num_shots', default=8, type=int)

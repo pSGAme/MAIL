@@ -225,7 +225,7 @@ class Trainer:
                     break
             if flag == 0:
                 param.requires_grad_(False)
-        print(f"tot={tot}, train = {train_part}")
+        print(f"tot={tot}, train = {train_part} (with no proj)")
         # NOTE: only give prompt_learner to the optimizer
         optimizer = None
         if self.args.optimizer == 'sgd':

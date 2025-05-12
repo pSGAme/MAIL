@@ -3,9 +3,9 @@ import os
 
 import torch
 import torch.nn as nn
-from clip_malanv2 import clip
-from clip_malanv2.model import CLIP
-from clip_malanv2.simple_tokenizer import SimpleTokenizer as _Tokenizer
+from clip_mail import clip
+from clip_mail.model import CLIP
+from clip_mail.simple_tokenizer import SimpleTokenizer as _Tokenizer
 import math
 import torch.nn as nn
 from PIL import Image

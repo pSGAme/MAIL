@@ -1,16 +1,9 @@
-import sys
-import os
-
 import torch
-import torch.nn as nn
-from clip_malanv2 import clip
-from clip_malanv2.model import CLIP
-from clip_malanv2.simple_tokenizer import SimpleTokenizer as _Tokenizer
-import math
+from clip_mail import clip
+from clip_mail.model import CLIP
+from clip_mail.simple_tokenizer import SimpleTokenizer as _Tokenizer
 import torch.nn as nn
 from PIL import Image
-from functools import reduce
-from operator import mul
 from src.utils import utils
 import copy
 
@@ -136,7 +129,7 @@ class MAIL_Linear(nn.Module):
         return x
 
     def text_forward(self, x, i):
-        a = self.text_a # + self.visual_scale * self.visual_a @ self.visual_proj
+        a = self.text_a  # + self.visual_scale * self.visual_a @ self.visual_proj
         b = self.text_b  # + self.visual_b @ self.visual_proj_down_bias  @ self.visual_proj_up_bias
         x = x * a + b
         return x
@@ -198,7 +191,7 @@ class MultiModalPromptLearner(nn.Module):
         print(f'Initial context: "{prompt_prefix}"')
 
 
-        ln_single_layer = MAIL(cfg=cfg, visual_dim=768, text_dim=512, alpha=cfg.alpha)
+        ln_single_layer = MAIL(cfg=cfg, visual_dim=768, text_dim=512, alpha=cfg.alpha) # clip-16
         # ln_single_layer = MAIL(cfg=cfg, visual_dim=1024, text_dim=768, alpha=cfg.alpha)
         self.ln_proj_layers_mlp = _get_clones(ln_single_layer, cfg.ivlu_end_layer)
         self.ln_proj_layers_att = _get_clones(ln_single_layer, cfg.ivlu_end_layer)

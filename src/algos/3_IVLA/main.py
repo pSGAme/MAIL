@@ -15,7 +15,7 @@ class Options:
 
     def __init__(self):
         # Parse options for processing
-        parser = argparse.ArgumentParser(description='UCDR_MAPLE')
+        parser = argparse.ArgumentParser(description='IVLA')
 
         parser.add_argument('-alpha', '--alpha', type=float, default=0.05, metavar='LR',
                             help='Initial learning rate for optimizer & scheduler')
