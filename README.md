@@ -21,13 +21,13 @@ conda activate MAIL
 
 ## Data Preparation
 
-1. Download DomainNet using scripts in `./DePro/src/data/downloads`.
+1. Download DomainNet using scripts in `MAIL/src/data/downloads`.
 
    ``` bash
    cd ./src/data/downloads
    bash download_domainnet.sh
    ```
-2. For Sketchy and TU-berlin, please refer to this [issue](https://github.com/kaipengfang/ProS/issues/3).
+2. For Sketchy and TU-berlin, please refer to  [ProS](https://github.com/kaipengfang/ProS).
 
 3. The directory is expected to be in the structure below:
 
@@ -66,56 +66,50 @@ conda activate MAIL
 The algorithms are in ./src/algos
 
 Be sure to modifiy the `data_path` and `code_path` in each main.py
-### baseline:
+## baselines:
 
-```bash
-cd ./src/algos/depro
-
-sh baseline.sh
-```
-
-### MaPLe+IVLP+VPT+VPT-D:
+### 1: MaPLe+IVLP+VPT+VPT-D:
 
 ```bash
 cd ./src/algos/1_PromptFamily
 sh run.sh
 ```
 
-### MMA:
+### 2: MMA:
 
 ```bash
 cd ./src/algos/2_MMA
 sh run.sh
 ```
-### IVLA:
+### 3: IVLA:
 
 ```bash
 cd ./src/algos/3_IVLA
 sh run.sh
 ```
 
-### AdaptFormer:
+### 4: AdaptFormer:
 
 ```bash
 cd ./src/algos/2_MMA
 sh run.sh
 ```
 
-### LoRA:
+### 5: LoRA:
 
 ```bash
 cd ./src/algos/5_LoRA
 sh run.sh
 ```
 
-### BitFit:
+### 6: BitFit:
 
 ```bash
 cd ./src/algos/6_BitFit
 sh run.sh
 ```
 
-### ProS:
+### 7: ProS:
 
 ```bash
 cd ./src/algos/7_ProS

@@ -344,10 +344,10 @@ class Trainer:
                 print(f"Val mAP hasn't improved from {self.best_map:.4f} for {self.early_stop_counter} epoch(s)!\n")
         print('\n***Training and Validation complete***')
 
-    def adjust_learning_rate(self, ckx_optimizer, current_epoch, min_lr=1e-6, ):
+    def adjust_learning_rate(self, optimizer, current_epoch, min_lr=1e-6, ):
         lr = self.args.lr * math.pow(1e-3, float(current_epoch) / 20)
         lr = max(lr, min_lr)
-        for param_group in ckx_optimizer.param_groups:
+        for param_group in optimizer.param_groups:
             param_group['lr'] = lr
 
     def resume_from_checkpoint(self, resume_dict):
@@ -361,7 +361,7 @@ class Trainer:
             self.model.load_state_dict(checkpoint['model_state_dict'], strict=False)
             # self.best_map = checkpoint['best_map']
 
-    def do_epoch(self, ckx_optimizer, current_epoch):
+    def do_epoch(self, optimizer, current_epoch):
         self.model.train()
 
         batch_time = AverageMeter()
@@ -380,7 +380,7 @@ class Trainer:
 
             im = im.float().to(device, non_blocking=True)
             cls_numeric = torch.from_numpy(utils.numeric_classes(cls, self.dict_clss)).long().to(device)
-            ckx_optimizer.zero_grad()
+            optimizer.zero_grad()
 
             feature, soft_label = self.model(im, dom, cls)
 
@@ -392,7 +392,7 @@ class Trainer:
 
             loss = loss_cls
             loss.backward()
-            ckx_optimizer.step()
+            optimizer.step()
 
             losss.update(loss.item(), im.size(0))
             loss_clss.update(loss_cls.item(), im.size(0))
@@ -413,7 +413,7 @@ class Trainer:
                     break
         return {'net': losss.avg, 'acc': correct / tot}
 
-    def do_epoch_with_triplet(self, ckx_optimizer, current_epoch):
+    def do_epoch_with_triplet(self, optimizer, current_epoch):
         self.model.train()
 
         batch_time = AverageMeter()
@@ -432,7 +432,7 @@ class Trainer:
 
             im = im.float().to(device, non_blocking=True)
             cls_numeric = torch.from_numpy(utils.numeric_classes(cls, self.dict_clss)).long().to(device)
-            ckx_optimizer.zero_grad()
+            optimizer.zero_grad()
 
             features, soft_label_list = self.model(im, dom, cls)
 
@@ -460,7 +460,7 @@ class Trainer:
 
             loss = loss_cls_all + loss_triplet_all
             loss.backward()
-            ckx_optimizer.step()
+            optimizer.step()
 
             losss.update(loss.item(), im.size(0))
             loss_clss.update(loss_cls_all.item(), im.size(0))

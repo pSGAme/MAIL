@@ -13,7 +13,6 @@ print(sys.path)
 from trainer import Trainer
 import argparse
 
-
 class Options:
 
     def __init__(self):
