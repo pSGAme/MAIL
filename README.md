@@ -1,3 +1,9 @@
+
+# MAIL: Multi-Modal Interactive Agent Layer for Few-Shot Universal Cross-Domain Retrieval and Beyond [NeurIPS 2025]
+> Official github repository for MAIL: **Multi-Modal Interactive Agent Layer for Few-Shot Universal Cross-Domain Retrieval and Beyond**
+
+
+
 ## Requirements
 
 - **Ubuntu**  22.04.4
@@ -117,6 +123,14 @@ sh run.sh
 cd ./src/algos/MAIL
 sh run.sh
 ```
+
+
+## Acknowledgements
+
+Our code implementation is based on [CoOp](https://github.com/KaiyangZhou/CoOp), [MaPle](https://github.com/muzairkhattak/multimodal-prompt-learning), 
+[MMA](https://github.com/muzairkhattak/multimodal-prompt-learning), [CLIP-LoRA](https://github.com/MaxZanella/CLIP-LoRA), and [ProS](https://github.com/kaipengfang/ProS).
+We thank all the authors for releasing their code.
+
 
 
 
