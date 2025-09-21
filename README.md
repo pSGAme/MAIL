@@ -2,7 +2,7 @@
 
 - **Ubuntu**  22.04.4
 - **RTX4090D-24GB or better**
-- **CUDA** 12.4
+- **CUDA** 11.3
 - **python** 3.10.4
 - **torch** 1.12.1 py3.10_cuda11.3_cudnn8.3.2_0
 - **torchvision** 0.13.1 py310_cu113
