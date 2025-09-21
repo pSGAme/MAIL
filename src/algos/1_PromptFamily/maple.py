@@ -413,8 +413,6 @@ class maple(nn.Module):
         self.visual_encoder = clip.visual
 
     def forward(self, image, domain_name, class_name):  # bt 3, 244, 244
-        cls_id = utils.numeric_classes(class_name, self.dict_clss)
-        dom_id = utils.numeric_classes(domain_name, self.dict_doms)
 
         prompts, shared_ctx, deep_compound_prompts_text, deep_compound_prompts_vision = self.text_prompt_learner()
         tokenized_prompts = self.tokenized_prompts
