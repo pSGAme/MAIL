@@ -152,7 +152,7 @@ class AdapterLearner(nn.Module):
         return embedding, self.text_adapter_func, self.visual_adapter_func
 
 
-class maple(nn.Module):
+class mma(nn.Module):
     def __init__(self, cfg, dict_clss, dict_doms, device):
         super().__init__()
         self.cfg = cfg

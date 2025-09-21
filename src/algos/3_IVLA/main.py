@@ -1,7 +1,9 @@
 import sys
 import torch
-import os 
+import os
+
 code_path = '/home/user/Code/MAIL'
+data_path = '/data/UCDR/data'
 sys.path.append(code_path)
 sys.path.append(os.path.join(code_path, "src"))
 print(sys.path)
@@ -23,29 +25,13 @@ class Options:
                             help='log name :)')
         parser.add_argument('-num_shots', '--num_shots', type=int, default=8,
                             help='Initial learning rate for optimizer & scheduler')
+        parser.add_argument('--proj', default=0, type=int)
 
-        # visual prompt
-        parser.add_argument('-visual', '--visual', default="VPT", choices=['VPT', 'None'],
-                            help='visual prompting methods:)')
-        parser.add_argument('-vptNumTokens', '--vptNumTokens', default=4, type=int,
-                            help='length of vpt-tokens')
 
         # text prompt
         parser.add_argument('-ctx_init', '--ctx_init', default='a photo of a',  # 'a photo of a'
                             help='ctx initialization :)')
-        parser.add_argument('-text', '--text', default="CoOp", choices=['CoOp', 'DCoOP', 'None'],
-                            help='text prompting methods:)')
-        parser.add_argument('-textNumTokens', '--textNumTokens', default=4, type=int,
-                            help='length of vpt-tokens')
-        # maple prompt
-        parser.add_argument('-maple', '--maple', choices=[0, 1], default=1, type=int,
-                            help='whether to utilize maple')
-        parser.add_argument('-maple_depth', '--maple_depth', default=1, type=int,
-                            help='maple depth')
-        parser.add_argument('-maple_length', '--maple_length', default=4, type=int,
-                            help='prompt length')
-        parser.add_argument('-ivlp', '--ivlp', choices=[0, 1], default=0, type=int,
-                            help='whether to conduct independent prompts learning')
+
         # optimizer
         parser.add_argument('-opt', '--optimizer', type=str, choices=['sgd', 'adam'], default='adam')
         parser.add_argument('-l2', '--l2_reg', default=0.0, type=float, help='L2 Weight Decay for optimizer')
@@ -57,10 +43,7 @@ class Options:
         parser.add_argument('-resume', '--resume_dict', type=str, help='checkpoint file to resume training from')
 
         # data_root
-
-        code_path = '/home/user/Code/DePro'
         parser.add_argument('-code_path', '--code_path', default=code_path, type=str, help='code path of UCDR')
-        data_path = '/data/UCDR/data'
         parser.add_argument('-dataset_path', '--dataset_path', default=data_path, type=str,
                             help='Path of three datasets')
 
