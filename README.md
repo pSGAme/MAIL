@@ -88,31 +88,25 @@ cd ./src/algos/3_IVLA
 sh run.sh
 ```
 
-### 4: AdaptFormer:
+
+### 4: LoRA:
 
 ```bash
-cd ./src/algos/4_AdaptFormer
+cd ./src/algos/4_LoRA
 sh run.sh
 ```
 
-### 5: LoRA:
+### 5: BitFit:
 
 ```bash
-cd ./src/algos/5_LoRA
+cd ./src/algos/5_BitFit
 sh run.sh
 ```
 
-### 6: BitFit:
+### 6: ProS:
 
 ```bash
-cd ./src/algos/6_BitFit
-sh run.sh
-```
-
-### 7: ProS:
-
-```bash
-cd ./src/algos/7_ProS
+cd ./src/algos/6_ProS
 sh run.sh
 ```
 
