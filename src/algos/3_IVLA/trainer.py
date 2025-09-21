@@ -16,7 +16,6 @@ class Trainer(BaseTrainer):
         print("================Parameters Settings=================")
         print('Parameters:\t' + str(self.args))
 
-
     def set_trainable_parameters(self) -> list:
         train_parameters = ['text_prompt_learner']  # 'feature_template'
         if self.args.proj:
@@ -28,7 +27,6 @@ class Trainer(BaseTrainer):
         prompts, text_adapter_func, visual_adapter_func = self.model.text_prompt_learner()
         out = self.model.visual_encoder([im, visual_adapter_func])
         return out
-
 
 
 
