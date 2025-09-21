@@ -14,11 +14,9 @@ from src.utils.logger import AverageMeter
 from src.losses.sup_con_loss import soft_sup_con_loss, triplet_loss
 from src.utils.logging import Logger
 
-from mail import mail
-from local_utils import *
+from .local_utils import *
 
-
-class Trainer:
+class BaseTrainer:
     def __init__(self, args):
         self.args = args
         print('\nLoading data...')
@@ -57,9 +55,6 @@ class Trainer:
 
         print('Loading Done\n')
 
-        self.model = mail(self.args, self.dict_clss, self.dict_doms, device)
-        self.model = self.model.to(device)
-
         self.save_folder_name = get_folder_name(args)
 
         self.map_metric = 'mAP@all'
@@ -80,25 +75,29 @@ class Trainer:
         self.best_map = 0
         self.early_stop_counter = 0
         self.last_ckpt_name = 'init'
+        self.model = None
 
-        print("================Parameters Settings=================")
-        print('Parameters:\t' + str(self.args))
-        print("================Training Settings=================")
-        print(f"lr = {self.args.lr}")
-        print(f"batch_size = {self.args.batch_size}")
-        print("==================================================")
+
+
+    def set_model(self):
+        pass
+
+    def show(self):
+        pass
+
+    def set_trainable_parameters(self) -> list:
+        pass
+
+    def evaluate(self, te_loader_query, te_loader_gallery, te_dict_class) -> tuple:
+        pass
 
     def training_set(self):
         tot = 0
         for name, param in self.model.named_parameters():
             tot += param.numel()
         lr = self.args.lr
-        print("======== The list of trainable parameters of MAIL========")
-        train_parameters = ['mail_learner', 'last_adapter', 'last_ln']
-        if self.args.proj:
-            train_parameters.append('text_encoder.text_projection')
-            train_parameters.append('visual_encoder.proj')
-
+        print("======== The list of trainable parameters ========")
+        train_parameters = self.set_trainable_parameters()
         train_part = 0
         for name, param in self.model.named_parameters():
             for str in train_parameters:
@@ -114,7 +113,6 @@ class Trainer:
             else:
                 print(name)
         print(f"tot={tot}, train = {train_part} (with no proj)")
-
         optimizer = None
         if self.args.optimizer == 'sgd':
             optimizer = optim.SGD(filter(lambda p: p.requires_grad, self.model.parameters()),
@@ -181,7 +179,7 @@ class Trainer:
                                                    num_workers=self.args.num_workers, pin_memory=True)
 
                     result_unnorm, result_norm \
-                        = evaluate(te_loader_query, te_loader_gallery, self.model, self.te_dict_class, self.args)
+                        = self.evaluate(te_loader_query, te_loader_gallery, self.te_dict_class)
                     map_, prec_ = self.post_precess(result_unnorm, result_norm)
 
                 print(
@@ -203,7 +201,7 @@ class Trainer:
                                                shuffle=False,
                                                num_workers=self.args.num_workers, pin_memory=True)
                 result_unnorm, result_norm \
-                    = evaluate(te_loader_query, te_loader_gallery, self.model, self.te_dict_class, self.args)
+                    = self.evaluate(te_loader_query, te_loader_gallery, self.te_dict_class)
                 _, _ = self.post_precess(result_unnorm, result_norm)
 
             else:
@@ -223,7 +221,7 @@ class Trainer:
                     f'#Test queries:{len(te_loader_query.dataset)}; #Test gallery samples:{len(te_loader_gallery.dataset)}.\n')
 
                 result_unnorm, result_norm \
-                    = evaluate(te_loader_query, te_loader_gallery, self.model, self.te_dict_class, self.args)
+                    = self.evaluate(te_loader_query, te_loader_gallery, self.te_dict_class)
                 map_, prec_ = self.post_precess(result_unnorm, result_norm)
 
             end = time.time()
@@ -319,3 +317,48 @@ class Trainer:
                 if self.args.debug_mode == 1:
                     break
         return {'net': losss.avg, 'acc': correct / (tot + 1)}
+
+    @torch.no_grad()
+    def evaluate(self, loader_sketch, loader_image, dict_clss) -> tuple:
+        self.model.eval()
+        sketchEmbeddings = list()
+        sketchLabels = list()
+        for i, (sk, cls_sk, dom) in tqdm(enumerate(loader_sketch), desc='Extrac query feature',
+                                         total=len(loader_sketch)):
+            sk = sk.float().to(device)
+            cls_id = utils.numeric_classes(cls_sk, dict_clss)
+
+            sk_em = self.visual_forward(sk)
+
+            sketchEmbeddings.append(sk_em)
+            cls_numeric = torch.from_numpy(cls_id).long().to(device)
+            sketchLabels.append(cls_numeric)
+            if self.args.debug_mode == 1 and i == 2:
+                break
+        sketchEmbeddings = torch.cat(sketchEmbeddings, 0)
+        sketchLabels = torch.cat(sketchLabels, 0)
+        realEmbeddings = list()
+        realLabels = list()
+
+        for i, (im, cls_im, dom) in tqdm(enumerate(loader_image), desc='Extrac gallery feature',
+                                         total=len(loader_image)):
+            im = im.float().to(device)
+            cls_id = utils.numeric_classes(cls_im, dict_clss)
+            im_em = self.visual_forward(im)
+            realEmbeddings.append(im_em)
+            cls_numeric = torch.from_numpy(cls_id).long().to(device)
+            realLabels.append(cls_numeric)
+
+        realEmbeddings = torch.cat(realEmbeddings, 0)
+        realLabels = torch.cat(realLabels, 0)
+
+        print('\nQuery Emb Dim:{}; Gallery Emb Dim:{}'.format(sketchEmbeddings.shape, realEmbeddings.shape))
+        print("Computing un-normed situation")
+        eval_data_unnorm = compute_retrieval_metrics(sketchEmbeddings, sketchLabels, realEmbeddings, realLabels)
+
+        print("Computing normed situation")
+        sketchEmbeddings = sketchEmbeddings / sketchEmbeddings.norm(dim=-1, keepdim=True)
+        realEmbeddings = realEmbeddings / realEmbeddings.norm(dim=-1, keepdim=True)
+        eval_data_norm = compute_retrieval_metrics(sketchEmbeddings, sketchLabels, realEmbeddings, realLabels)
+
+        return eval_data_unnorm, eval_data_norm

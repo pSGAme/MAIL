@@ -22,7 +22,7 @@ class Options:
         parser.add_argument('-log_name', '--log_name', type=str, default='log',
                             help='log name :)')
         parser.add_argument('--num_shots', default=8, type=int)
-        parser.add_argument('--trick', default=1, type=int)
+        parser.add_argument('--proj', default=1, type=int)
 
         # visual prompt
         parser.add_argument('-visualNumTokens', '--visualNumTokens', default=2, type=int,
