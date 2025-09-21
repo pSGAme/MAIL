@@ -168,15 +168,7 @@ class MAILLearner(nn.Module):
         clip_imsize = clip_model.visual.input_resolution
         cfg_imsize = cfg.image_size
         assert cfg_imsize == clip_imsize, f"cfg_imsize ({cfg_imsize}) must equal to clip_imsize ({clip_imsize})"
-
-        # use given words to initialize context vectors
-        ctx_init = ctx_init.replace("_", " ")  # "a photo of [CLASS]."
-        prompt = clip.tokenize(ctx_init).to(device)
-        with torch.no_grad():
-            embedding = clip_model.token_embedding(prompt).type(dtype).to(device)
-        prompt_prefix = ctx_init
-
-
+        prompt_prefix = ctx_init.replace("_", " ")  # "a photo of [CLASS]."
         print(f'Initial context: "{prompt_prefix}"')
 
         ln_single_layer = MAIL(cfg=cfg, visual_dim=768, text_dim=512, alpha=cfg.alpha)

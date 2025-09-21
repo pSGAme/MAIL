@@ -2,7 +2,7 @@ import sys
 from tqdm import tqdm
 import os
 
-from mail import mail
+from bitfit import bitfit
 import torch
 import math
 import time
@@ -109,12 +109,9 @@ class Trainer:
 
         cls_dis = utils.numeric_classes(cls_tr, self.dict_clss)
 
-        # train_sampler = MoreBalancedSampler(domain_ids, cls_dis,
-        #                                 domains_per_batch=len(tr_domains_unique))  # 每个batch的采样都来自同一个domain
         train_sampler = FewShotSampler(domain_ids, cls_dis,
                                             domains_per_batch=len(tr_domains_unique), num_shots=self.args.num_shots)  # 每个batch的采样都来自同一个domain
-        # train_sampler = BalancedSampler(domain_ids, args.batch_size // len(tr_domains_unique),
-        #                                 domains_per_batch=len(tr_domains_unique))  # 每个batch的采样都来自同一个domain
+
 
         self.train_loader = DataLoader(dataset=data_train, batch_size=args.batch_size, sampler=train_sampler,
                                        num_workers=args.num_workers,
@@ -122,24 +119,10 @@ class Trainer:
         self.train_loader_for_SP = DataLoader(dataset=data_train, batch_size= 400, sampler=train_sampler,
                                        num_workers=args.num_workers,
                                        pin_memory=True)
-        data_va_query = BaselineDataset(self.data_splits['query_va'], transforms=self.image_transforms['eval'])
-        data_va_gallery = BaselineDataset(self.data_splits['gallery_va'], transforms=self.image_transforms['eval'])
-        # data_va_query = BaselineDataset(data_splits['query_va'],)
-        # data_va_gallery = BaselineDataset(data_splits['gallery_va'])
 
-        # PyTorch valid loader for query
-        self.va_loader_query = DataLoader(dataset=data_va_query, batch_size=args.batch_size , shuffle=False,
-                                          num_workers=args.num_workers,
-                                          pin_memory=True)
-        # PyTorch valid loader for gallery
-        self.va_loader_gallery = DataLoader(dataset=data_va_gallery, batch_size=args.batch_size , shuffle=False,
-                                            num_workers=args.num_workers,
-                                            pin_memory=True)
-
-        print(f'#Tr samples:{len(data_train)}; #Val queries:{len(data_va_query)}; #Val gallery samples:{len(data_va_gallery)}.\n')
         print('Loading Done\n')
 
-        self.model = mail(self.args, self.dict_clss, self.dict_doms, device)
+        self.model = bitfit(self.args, self.dict_clss, self.dict_doms, device)
         self.model = self.model.to(device)
 
         if args.dataset=='DomainNet':
@@ -266,8 +249,8 @@ class Trainer:
                     test_head_str = 'Query:' + domain + '; Gallery:' + self.args.gallery_domain + '; Generalized:' + str(includeSeenClassinTestGallery)
                     print(test_head_str)
 
-                    splits_query = domainnet.trvalte_per_domain(self.args, domain, 0, self.tr_classes, self.va_classes, self.te_classes)
-                    splits_gallery = domainnet.trvalte_per_domain(self.args, self.args.gallery_domain, includeSeenClassinTestGallery, self.tr_classes, self.va_classes, self.te_classes)
+                    splits_query = domainnet.trvalte_per_domain(self.args, domain, 0, self.tr_classes, self.te_classes)
+                    splits_gallery = domainnet.trvalte_per_domain(self.args, self.args.gallery_domain, includeSeenClassinTestGallery, self.tr_classes,  self.te_classes)
 
                     data_te_query = BaselineDataset(np.array(splits_query['te']), transforms=self.image_transforms['eval'])
                     data_te_gallery = BaselineDataset(np.array(splits_gallery['te']), transforms=self.image_transforms['eval'])
@@ -432,8 +415,7 @@ def evaluate(loader_sketch, loader_image, model, dict_clss, dict_doms, stage, ar
 
         # text_features = model.text_encoder(prompts, tokenized_prompts, deep_compound_prompts_text)
         sk_em = model.visual_encoder(sk, ln_proj_layers_mlp, ln_proj_layers_att, mlp_proj_layers_mlp, att_proj_layers_att, model.last_ln)
-        if model.last_adapter is not None:
-            sk_em = model.last_adapter(sk_em, is_text=False, i=1)
+
         sketchEmbeddings.append(sk_em)
 
         cls_numeric = torch.from_numpy(cls_id).long().to(device)
@@ -452,15 +434,11 @@ def evaluate(loader_sketch, loader_image, model, dict_clss, dict_doms, stage, ar
         im = im.float().to(device)
         cls_id = utils.numeric_classes(cls_im, dict_clss)
         dom_id = utils.numeric_classes(dom, dict_doms)
-        # Clipart embedding into a semantic space
-        #im_em = model.visual_encoder(im)  # dom_id, cls_id, stage
+
         prompts,  ln_proj_layers_mlp, ln_proj_layers_att, mlp_proj_layers_mlp, att_proj_layers_att = model.text_prompt_learner()
 
-        # text_features = model.text_encoder(prompts, tokenized_prompts, deep_compound_prompts_text)
-        im_em = model.visual_encoder(im, ln_proj_layers_mlp, ln_proj_layers_att,mlp_proj_layers_mlp, att_proj_layers_att, model.last_ln)
-        if model.last_adapter is not None:
-            im_em = model.last_adapter(im_em, is_text=False, i=1)
-        # Accumulate sketch embedding
+        im_em = model.visual_encoder(im, ln_proj_layers_mlp, ln_proj_layers_att, mlp_proj_layers_mlp, att_proj_layers_att, model.last_ln)
+
         realEmbeddings.append(im_em)
         cls_numeric = torch.from_numpy(cls_id).long().to(device)
 
@@ -474,12 +452,10 @@ def evaluate(loader_sketch, loader_image, model, dict_clss, dict_doms, stage, ar
     print('\nQuery Emb Dim:{}; Gallery Emb Dim:{}'.format(sketchEmbeddings.shape, realEmbeddings.shape))
     print("computing unormed situation")
     eval_data_unnorm = compute_retrieval_metrics(sketchEmbeddings, sketchLabels, realEmbeddings, realLabels)
-    print(eval_data_unnorm["mAP@200"], eval_data_unnorm["prec@200"])
-
 
     print("computing normed situation")
     sketchEmbeddings = sketchEmbeddings / sketchEmbeddings.norm(dim=-1, keepdim=True)
-    realEmbeddings= realEmbeddings / realEmbeddings.norm(dim=-1, keepdim=True)
+    realEmbeddings = realEmbeddings / realEmbeddings.norm(dim=-1, keepdim=True)
     eval_data_norm = compute_retrieval_metrics(sketchEmbeddings, sketchLabels, realEmbeddings, realLabels)
-    print(eval_data_norm["mAP@200"], eval_data_norm["prec@200"])
+
     return eval_data_unnorm,  eval_data_norm

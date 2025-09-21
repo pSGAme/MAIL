@@ -1,17 +1,11 @@
 import sys
-import os
-from torch.cuda.amp import autocast as autocast
 from tqdm import tqdm
 import os
 
 from src.utils.logging import Logger
 
-code_path = '/home'  # e.g. '/home/username/ProS'
-sys.path.append(code_path)
-sys.path.append(os.path.join(code_path, "src"))
-sys.path.append(os.path.join(code_path, "clip"))
 
-from src.models.prosnet import prosnet
+from prosnet import prosnet
 import torch
 import math
 import time
@@ -40,9 +34,7 @@ gm = GPUmanager.GPUManager()
 gpu_index = gm.auto_choice()
 device = torch.device(f'cuda:{gpu_index}' if torch.cuda.is_available() else 'cpu')
 
-
 class Trainer:
-
     def __init__(self, args):
         self.args = args
         self.log_name = args.log_name
@@ -83,20 +75,12 @@ class Trainer:
                 transforms.Resize(args.image_size, interpolation=BICUBIC),
                 transforms.CenterCrop(args.image_size),
                 transforms.ToTensor(),
-                #lambda image: image.convert("RGB"),
                 transforms.Normalize((0.48145466, 0.4578275, 0.40821073), (0.26862954, 0.26130258, 0.27577711)),
                 ])
         }
-
-        # class dictionary
         self.dict_clss = utils.create_dict_texts(self.tr_classes)  # 生成 类:index 的一个字典
-
-        # print(self.dict_clss). word to one-hot, not vector
         self.te_dict_class = utils.create_dict_texts(self.tr_classes+self.va_classes+self.te_classes)
-        # print(self.te_dict_class)
 
-        # self.te_dict_class = utils.create_dict_texts(self.tr_classes+ self.te_classes)
-        # print(self.te_dict_class)
         fls_tr = self.data_splits['tr']
         cls_tr = np.array([f.split('/')[-2] for f in fls_tr])
         dom_tr = np.array([f.split('/')[-3] for f in fls_tr])
@@ -104,15 +88,12 @@ class Trainer:
 
         # doamin dictionary
         self.dict_doms = utils.create_dict_texts(tr_domains_unique)
-        print(self.dict_doms)
+
         domain_ids = utils.numeric_classes(dom_tr, self.dict_doms)
-        # data_train = PairedContrastiveImageDataset(
-        #     fls_tr, cls_tr, dom_tr, self.dict_doms, self.dict_clss, self.image_transforms['train'], 2, 1)
+
         data_train = CuMixloader(fls_tr, cls_tr, dom_tr, self.dict_doms, transforms=self.image_transforms['train'])
         cls_dis = utils.numeric_classes(cls_tr, self.dict_clss)
 
-        # train_sampler = MoreBalancedSampler(domain_ids, cls_dis,
-        #                                 domains_per_batch=len(tr_domains_unique))  # 每个batch的采样都来自同一个domain
         train_sampler = FewShotSampler(domain_ids, cls_dis,
                                        domains_per_batch=len(tr_domains_unique),
                                        num_shots=2)  # 每个batch的采样都来自同一个domain
@@ -122,24 +103,6 @@ class Trainer:
         self.train_loader = DataLoader(dataset=data_train, batch_size=args.batch_size, sampler=train_sampler,
                                        num_workers=args.num_workers,
                                        pin_memory=True)
-        self.train_loader_for_SP = DataLoader(dataset=data_train, batch_size= 400, sampler=train_sampler,
-                                       num_workers=args.num_workers,
-                                       pin_memory=True)
-        data_va_query = BaselineDataset(self.data_splits['query_va'], transforms=self.image_transforms['eval'])
-        data_va_gallery = BaselineDataset(self.data_splits['gallery_va'], transforms=self.image_transforms['eval'])
-        # data_va_query = BaselineDataset(data_splits['query_va'],)
-        # data_va_gallery = BaselineDataset(data_splits['gallery_va'])
-
-        # PyTorch valid loader for query
-        self.va_loader_query = DataLoader(dataset=data_va_query, batch_size=args.batch_size , shuffle=False,
-                                          num_workers=args.num_workers,
-                                          pin_memory=True)
-        # PyTorch valid loader for gallery
-        self.va_loader_gallery = DataLoader(dataset=data_va_gallery, batch_size=args.batch_size , shuffle=False,
-                                            num_workers=args.num_workers,
-                                            pin_memory=True)
-
-        print(f'#Tr samples:{len(data_train)}; #Val queries:{len(data_va_query)}; #Val gallery samples:{len(data_va_gallery)}.\n')
         print('Loading Done\n')
 
         self.model = prosnet(self.args, self.dict_clss, self.dict_doms, device)
@@ -248,12 +211,9 @@ class Trainer:
         correct = 0
         tot = 0
         for i, (im, cls, dom) in enumerate(train_loader):
-          
             im = im.float().to(device, non_blocking=True)
             cls_numeric = torch.from_numpy(utils.numeric_classes(cls, self.dict_clss)).long().to(device)
-            # print(cls_numeric.shape)
             self.optimizer.zero_grad()
-            #with autocast():
             feature, soft_label = self.model(im, dom, cls, stage) 
             if self.args.tp_N_CTX == -1: # no text prompt tuning 
                 hard_labels = cls_numeric.contiguous().view(-1, 1)
@@ -305,24 +265,20 @@ class Trainer:
         #self.resume_from_checkpoint(self.args.resume_dict)
 
         for self.current_epoch in range(self.start_epoch, self.args.epochs):
-
             start = time.time()
-
             self.adjust_learning_rate()
-
             loss = self.do_epoch(2)
+            print(f"Epoch = [{self.current_epoch + 1}/{self.args.epochs}] Loss = {loss}")
             print('\n***Validation***')
             if self.args.dataset=='DomainNet':
                 te_data = []
                 print("udcdr==0")
-                #if self.args.udcdr == 0:
                 for domain in [self.args.holdout_domain]:
                     for includeSeenClassinTestGallery in [0, 1]:
                         test_head_str = 'Query:' + domain + '; Gallery:' + self.args.gallery_domain + '; Generalized:' + str(includeSeenClassinTestGallery)
                         print(test_head_str)
-
-                        splits_query = domainnet.trvalte_per_domain(self.args, domain, 0, self.tr_classes, self.va_classes, self.te_classes)
-                        splits_gallery = domainnet.trvalte_per_domain(self.args, self.args.gallery_domain, includeSeenClassinTestGallery, self.tr_classes, self.va_classes, self.te_classes)
+                        splits_query = domainnet.trvalte_per_domain(self.args, domain, 0, self.tr_classes, self.te_classes)
+                        splits_gallery = domainnet.trvalte_per_domain(self.args, self.args.gallery_domain, includeSeenClassinTestGallery, self.tr_classes, self.te_classes)
 
                         data_te_query = BaselineDataset(np.array(splits_query['te']), transforms=self.image_transforms['eval'])
                         data_te_gallery = BaselineDataset(np.array(splits_gallery['te']), transforms=self.image_transforms['eval'])
@@ -374,9 +330,7 @@ class Trainer:
                 # PyTorch test loader for gallery
                 te_loader_gallery = DataLoader(dataset=data_te_gallery, batch_size=60, shuffle=False,
                                                 num_workers=self.args.num_workers, pin_memory=True)
-                # result = evaluate(te_loader_query, te_loader_gallery, self.model, self.te_dict_class, self.dict_doms, 4, self.args)
-                # map_ = result[self.map_metric]
-                # prec = result[self.prec_metric]
+
                 result_unnorm, result_norm = evaluate(te_loader_query, te_loader_gallery, self.model,
                                                       self.te_dict_class, self.dict_doms, 4, self.args)
                 map_unorm, map_norm = result_unnorm[self.map_metric], result_norm[self.map_metric]
@@ -465,10 +419,9 @@ class Trainer:
             model_path = os.path.join(self.path_cp, resume_dict+'.pth')
             checkpoint = torch.load(model_path, map_location=device)
             self.start_epoch = checkpoint['epoch']+1
-            #self.last_chkpt_name = resume_dict
             self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
             self.model.load_state_dict(checkpoint['model_state_dict'], strict=False)
-            #self.best_map = checkpoint['best_map']
+
         
 @torch.no_grad()
 def evaluate(loader_sketch, loader_image, model:prosnet, dict_clss, dict_doms, stage, args):

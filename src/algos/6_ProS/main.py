@@ -1,15 +1,17 @@
 import sys
 import torch
-import os 
-code_path = '/home/user/Code/DePro' # e.g. '/home/username/ProS'
+import os
+
+
+code_path = '/home/user/Code/MAIL'
+data_path = '/data/UCDR/data'
 sys.path.append(code_path)
 sys.path.append(os.path.join(code_path, "src"))
 print(sys.path)
-# user defined
+
 
 from trainer import Trainer
 import argparse
-import os
 
 
 class Options:
@@ -27,10 +29,8 @@ class Options:
         parser.add_argument('-stage1_epochs', '--stage1_epochs', default=1, type=int,
                             help='projection for domain visual prompt')
 
+        parser.add_argument('-code_path', '--code_path', default=code_path, type=str, help='code path of ProS')
 
-        root_path = '/home/user/Code/DePro'
-        parser.add_argument('-code_path', '--code_path', default=root_path, type=str, help='code path of ProS')
-        data_path = '/data/UCDR/data'
         parser.add_argument('-dataset_path', '--dataset_path', default=data_path, type=str,
                             help='Path of three datasets')
 
@@ -118,7 +118,5 @@ if __name__ == '__main__':
     torch.backends.cudnn.benchmark = True
     # Parse options
     args = Options().parse()
-    if args.dataset != "DomainNet":
-        args.dataset_path = '/root/autodl-tmp/data/'
     print('Parameters:\t' + str(args))
     main(args)

@@ -59,11 +59,6 @@ def create_trvalte_splits(args):
     splits = {}
     splits['tr'] = np.array(fls_train)
 
-    # the following four lines seems useless
-    splits_query_te = trvalte_per_domain(args, args.holdout_domain, 1, tr_classes,  te_classes)
-    splits['query_va'] = np.array(splits_query_te['te'])
-    splits['gallery_va'] = np.array(splits_gallery['te'])
-
     splits_query_te = trvalte_per_domain(args, args.holdout_domain, 0, tr_classes,  te_classes)
     splits_gallery_te = trvalte_per_domain(args, args.gallery_domain, 0, tr_classes, te_classes)
 
@@ -72,10 +67,11 @@ def create_trvalte_splits(args):
 
     print('\n# Classes - Tr:{}; Te:{}'.format(len(tr_classes), len(te_classes)))
 
-    return {'tr_classes': tr_classes, 'te_classes': te_classes, 'splits': splits}
+    return {'tr_classes': tr_classes, 'va_classes': va_classes, 'te_classes': te_classes, 'splits': splits}
 
 
 def trvalte_per_domain(args, domain, mixed_gallery, tr_classes, te_classes):
+
     # Split the data in the specified domain according to the defined training, validation, and test classes.
     # Return numpy arrays for the training, validation, and test sets.
     splits = {}

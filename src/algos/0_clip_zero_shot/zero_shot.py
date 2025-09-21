@@ -84,7 +84,6 @@ class Tester:
             self.map_metric = 'mAP@all'
             self.prec_metric = 'prec@100'
 
-
     def test(self):    
         te_data = []
         if self.args.dataset == 'DomainNet':
@@ -94,8 +93,8 @@ class Tester:
                         test_head_str = 'Query:' + domain + '; Gallery:' + self.args.gallery_domain + '; Generalized:' + str(includeSeenClassinTestGallery)
                         print(test_head_str)
                         
-                        splits_query = domainnet.trvalte_per_domain(self.args, domain, 0, self.tr_classes, self.va_classes, self.te_classes)
-                        splits_gallery = domainnet.trvalte_per_domain(self.args, self.args.gallery_domain, includeSeenClassinTestGallery, self.tr_classes, self.va_classes, self.te_classes)
+                        splits_query = domainnet.trvalte_per_domain(self.args, domain, 0, self.tr_classes,  self.te_classes)
+                        splits_gallery = domainnet.trvalte_per_domain(self.args, self.args.gallery_domain, includeSeenClassinTestGallery, self.tr_classes, self.te_classes)
 
                         data_te_query = BaselineDataset(np.array(splits_query['te']), transforms=self.image_transforms['eval'])
                         data_te_gallery = BaselineDataset(np.array(splits_gallery['te']), transforms=self.image_transforms['eval'])
@@ -107,7 +106,6 @@ class Tester:
                         te_loader_gallery = DataLoader(dataset=data_te_gallery, batch_size=self.args.batch_size * 10, shuffle=False,
                                                         num_workers=self.args.num_workers, pin_memory=True)
 
-                        # print(f'#Test queries:{len(te_loader_query.dataset)}; #Test gallery samples:{len(te_loader_gallery.dataset)}.')
                         result = evaluate(te_loader_query, te_loader_gallery, self.model, self.te_dict_class, self.dict_doms, 4, self.args)
                         te_data.append(result)
                         
