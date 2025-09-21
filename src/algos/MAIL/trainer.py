@@ -31,4 +31,6 @@ class Trainer(BaseTrainer):
         prompts, ln_proj_layers_mlp, ln_proj_layers_att, mlp_proj_layers_mlp, att_proj_layers_att = self.model.mail_learner()
         out = self.model.visual_encoder(im, ln_proj_layers_mlp, ln_proj_layers_att, mlp_proj_layers_mlp,
                                         att_proj_layers_att, self.model.last_ln)
+        if self.model.last_adapter is not None:
+            out = self.model.last_adapter(out, is_text=False, i=12)
         return out
