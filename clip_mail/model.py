@@ -256,9 +256,8 @@ class ResidualAttentionBlock_IVLP(nn.Module):
         return x
 
 
-class ResidualAttentionBlock_MaPLe(nn.Module):
-    def __init__(self, d_model: int, n_head: int, attn_mask: torch.Tensor = None, design_details=None,
-                 text_layer=False, i=0):
+class ResidualAttentionBlock_MAIL(nn.Module):
+    def __init__(self, d_model: int, n_head: int, attn_mask: torch.Tensor = None, text_layer=False, i=0):
         super().__init__()
 
         self.attn = nn.MultiheadAttention(d_model, n_head)
@@ -274,7 +273,7 @@ class ResidualAttentionBlock_MaPLe(nn.Module):
         self.text_layer = text_layer
         self.attn_mask = attn_mask
         # This must be consistent with the config file prompt
-        self.compound_prompt_nctx = design_details['maple_length']
+
         if i == 0:
             self.first_layer = True
         else:
@@ -315,28 +314,14 @@ class ResidualAttentionBlock_MaPLe(nn.Module):
 
 
 class Transformer(nn.Module):
-    def __init__(self, width: int, layers: int, heads: int, attn_mask: torch.Tensor = None, prompts_needed=0,
-                 text_layer=False, design_details=None):
+    def __init__(self, width: int, layers: int, heads: int, attn_mask: torch.Tensor = None, text_layer=False,):
         super().__init__()
         self.width = width
         self.layers = layers
         # Implements respective encoder blocks for a given design choice
-        current_trainer = design_details['trainer']
-        if current_trainer == 'IVLP' or current_trainer == 'VPT':
-            self.resblocks = nn.Sequential(*[ResidualAttentionBlock_IVLP(width, heads, attn_mask, True,
-                                                                         text_layer, i,
-                                                                         design_details) if prompts_needed > i
-                                             else ResidualAttentionBlock_IVLP(width, heads, attn_mask, False,
-                                                                              text_layer, i, design_details)
-                                             for i in range(layers)])
-        elif current_trainer == 'MaPLe':
-            self.resblocks = nn.Sequential(
-                *[ResidualAttentionBlock_MaPLe(width, heads, attn_mask, design_details, text_layer, i)
-                  for i in range(layers)])
-        else:
-            # Corresponds to default CoOp or CoCoOp
-            assert current_trainer == 'CoOp' or current_trainer == 'CoCoOp'
-            self.resblocks = nn.Sequential(*[ResidualAttentionBlock(width, heads, attn_mask) for _ in range(layers)])
+        self.resblocks = nn.Sequential(
+            *[ResidualAttentionBlock_MAIL(width, heads, attn_mask, text_layer, i)
+              for i in range(layers)])
 
     def forward(self, x: torch.Tensor):
         return self.resblocks(x)
@@ -405,9 +390,8 @@ class VisionTransformer(nn.Module):
         return x
 
 
-class VisionTransformer_MaPLe(nn.Module):
-    def __init__(self, input_resolution: int, patch_size: int, width: int, layers: int, heads: int, output_dim: int,
-                 design_details):
+class VisionTransformer_MAIL(nn.Module):
+    def __init__(self, input_resolution: int, patch_size: int, width: int, layers: int, heads: int, output_dim: int):
         super().__init__()
         self.input_resolution = input_resolution
         self.output_dim = output_dim
@@ -417,11 +401,8 @@ class VisionTransformer_MaPLe(nn.Module):
         self.class_embedding = nn.Parameter(scale * torch.randn(width))
         self.positional_embedding = nn.Parameter(scale * torch.randn((input_resolution // patch_size) ** 2 + 1, width))
         self.ln_pre = LayerNorm(width)
-        # hyper-parameter if need to add prompt embeddings inside to the input
-        # of transformer block or not:
-        self.prompt_till_layer_visual = 0
-        self.transformer = Transformer(width, layers, heads, design_details=design_details)
 
+        self.transformer = Transformer(width, layers, heads)
         self.ln_post = LayerNorm(width)
         self.proj = nn.Parameter(scale * torch.randn(width, output_dim))
 
@@ -472,12 +453,12 @@ class CLIP(nn.Module):
                  transformer_width: int,
                  transformer_heads: int,
                  transformer_layers: int,
-                 design_details
+
                  ):
         super().__init__()
 
         self.context_length = context_length
-        trainer = design_details['trainer']  # diff-1
+
 
         if isinstance(vision_layers, (tuple, list)):
             vision_heads = vision_width * 32 // 64
@@ -490,37 +471,25 @@ class CLIP(nn.Module):
             )
         else:
             vision_heads = vision_width // 64
-            if trainer == "MaPLe":
-                self.visual = VisionTransformer_MaPLe(
-                    input_resolution=image_resolution,
-                    patch_size=vision_patch_size,
-                    width=vision_width,
-                    layers=vision_layers,
-                    heads=vision_heads,
-                    output_dim=embed_dim,
-                    design_details=design_details
-                )
-            else:
-                self.visual = VisionTransformer(
-                    input_resolution=image_resolution,
-                    patch_size=vision_patch_size,
-                    width=vision_width,
-                    layers=vision_layers,
-                    heads=vision_heads,
-                    output_dim=embed_dim,
-                    design_details=design_details
-                )
+
+            self.visual = VisionTransformer_MAIL(
+                input_resolution=image_resolution,
+                patch_size=vision_patch_size,
+                width=vision_width,
+                layers=vision_layers,
+                heads=vision_heads,
+                output_dim=embed_dim,
+            )
+
         # hyper-parameter if need to add prompt embeddings inside to the input
         # of transformer block or not:
-        prompt_till_layer_text = design_details['language_depth']
+
         self.transformer = Transformer(
             width=transformer_width,
             layers=transformer_layers,
             heads=transformer_heads,
             attn_mask=self.build_attention_mask(),
-            prompts_needed=prompt_till_layer_text,
             text_layer=True,
-            design_details=design_details
         )
 
         self.vocab_size = vocab_size
@@ -633,7 +602,7 @@ def convert_weights(model: nn.Module):
     model.apply(_convert_weights_to_fp16)
 
 
-def build_model(state_dict: dict, design_details):
+def build_model(state_dict: dict):
     vit = "visual.proj" in state_dict
 
     if vit:
@@ -663,8 +632,7 @@ def build_model(state_dict: dict, design_details):
     model = CLIP(
         embed_dim,
         image_resolution, vision_layers, vision_width, vision_patch_size,
-        context_length, vocab_size, transformer_width, transformer_heads, transformer_layers, design_details
-    )
+        context_length, vocab_size, transformer_width, transformer_heads, transformer_layers)
 
     for key in ["input_resolution", "context_length", "vocab_size"]:
         if key in state_dict:

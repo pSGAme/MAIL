@@ -30,13 +30,13 @@ class MAIL(nn.Module):
         self.text_a = torch.nn.Parameter(torch.ones(text_dim))
         self.text_b = torch.nn.Parameter(torch.zeros(text_dim))
 
-        d = self.cfg.d
+        d = self.cfg.rank
         visual_scale = visual_dim ** -0.5
         text_scale = text_dim ** -0.5
-        t = self.cfg.t
+
         #
         # gaussian - 0 distribution
-        self.text_proj_down = nn.Parameter(text_scale * t * torch.randn(text_dim, d))
+        self.text_proj_down = nn.Parameter(text_scale * 1 * torch.randn(text_dim, d))
         self.text_proj_up = nn.Parameter(visual_scale * 0 * torch.randn(d, visual_dim))
 
         # self.text_proj_down_bias = nn.Parameter(text_scale * t * torch.randn(text_dim, d))
@@ -69,7 +69,6 @@ class MAIL(nn.Module):
         # 0 - 0 distribution
         # self.text_proj_down = nn.Parameter(text_scale * 0 * torch.randn(text_dim, d))
         # self.text_proj_up = nn.Parameter(visual_scale * 0 * torch.randn(d, visual_dim))
-
 
     def forward(self, x, is_text, i=0):
         if is_text:
@@ -159,40 +158,28 @@ class TextEncoder(nn.Module):
         return x
 
 
-class MultiModalPromptLearner(nn.Module):
+class MAILLearner(nn.Module):
     def __init__(self, cfg, classnames, clip_model, device):
         super().__init__()
         n_cls = len(classnames)
-        n_ctx = cfg.textNumTokens  # it should be equal to VPTNumTokens!!!!
         ctx_init = cfg.ctx_init
         dtype = clip_model.dtype  # fp32
 
-        ctx_dim = clip_model.ln_final.weight.shape[0]  # 512
         clip_imsize = clip_model.visual.input_resolution
         cfg_imsize = cfg.image_size
-        assert cfg.maple_depth >= 1, "For MaPLe, PROMPT_DEPTH should be >= 1"  # 9
-        self.compound_prompts_depth = cfg.maple_depth  # max=12, but will create 11 such shared prompts
         assert cfg_imsize == clip_imsize, f"cfg_imsize ({cfg_imsize}) must equal to clip_imsize ({clip_imsize})"
 
-        if ctx_init is not None and n_ctx <= 4:
-            # use given words to initialize context vectors
-            ctx_init = ctx_init.replace("_", " ")
-            prompt = clip.tokenize(ctx_init).to(device)
-            with torch.no_grad():
-                embedding = clip_model.token_embedding(prompt).type(dtype).to(device)
-            ctx_vectors = embedding[0, 1: 1 + n_ctx, :]
-            prompt_prefix = ctx_init
-        else:
-            # random initialization
-            ctx_vectors = torch.empty(n_ctx, ctx_dim, dtype=dtype).to(device)
-            nn.init.normal_(ctx_vectors, std=0.02)
-            prompt_prefix = " ".join(["X"] * n_ctx)
+        # use given words to initialize context vectors
+        ctx_init = ctx_init.replace("_", " ")  # "a photo of [CLASS]."
+        prompt = clip.tokenize(ctx_init).to(device)
+        with torch.no_grad():
+            embedding = clip_model.token_embedding(prompt).type(dtype).to(device)
+        prompt_prefix = ctx_init
+
 
         print(f'Initial context: "{prompt_prefix}"')
 
-
-        ln_single_layer = MAIL(cfg=cfg, visual_dim=768, text_dim=512, alpha=cfg.alpha) # clip-16
-        # ln_single_layer = MAIL(cfg=cfg, visual_dim=1024, text_dim=768, alpha=cfg.alpha)
+        ln_single_layer = MAIL(cfg=cfg, visual_dim=768, text_dim=512, alpha=cfg.alpha)
         self.ln_proj_layers_mlp = _get_clones(ln_single_layer, cfg.ivlu_end_layer)
         self.ln_proj_layers_att = _get_clones(ln_single_layer, cfg.ivlu_end_layer)
         self.att_proj_layers_att = _get_clones(ln_single_layer, cfg.ivlu_end_layer)
@@ -209,16 +196,13 @@ class MultiModalPromptLearner(nn.Module):
         self.register_buffer("embedding", embedding)  # CLS, EOS
 
         self.n_cls = n_cls
-        self.n_ctx = n_ctx
         self.tokenized_prompts = tokenized_prompts  # torch.Tensor
         self.name_lens = name_lens
 
     def forward(self):
-
         prompts = self.embedding
         return prompts, self.ln_proj_layers_mlp, self.ln_proj_layers_att, self.att_proj_layers_att, self.mlp_proj_layers_mlp
-        # return prompts, None, self.compound_prompts_text, visual_deep_prompts, \
-        #        self.ln_proj_layers_mlp, self.ln_proj_layers_att, self.att_proj_layers_att, self.mlp_proj_layers_mlp
+
 
 class mail(nn.Module):
     def __init__(self, cfg, dict_clss, dict_doms, device):
@@ -227,18 +211,15 @@ class mail(nn.Module):
         self.dict_clss = dict_clss
         self.dict_doms = dict_doms
         self.device = device
-
         clip: CLIP = self.load_clip()
         self.dtype = clip.dtype
 
         # for text
-        self.text_prompt_learner = MultiModalPromptLearner(self.cfg, self.dict_clss.keys(), clip, device)
+        self.mail_learner = MAILLearner(self.cfg, self.dict_clss.keys(), clip, device)
         self.text_encoder = TextEncoder(clip)
-        self.tokenized_prompts = self.text_prompt_learner.tokenized_prompts
+        self.tokenized_prompts = self.mail_learner.tokenized_prompts
 
         self.visual_encoder = clip.visual
-        # self.last_ln = None
-        # self.last_adapter = None
         self.last_ln = MAIL(cfg=cfg, visual_dim=768, text_dim=512, alpha=0.0)
         self.last_adapter = MAIL(cfg=cfg, visual_dim=512, text_dim=512, alpha=0.0)
 
@@ -247,8 +228,7 @@ class mail(nn.Module):
         dom_id = utils.numeric_classes(domain_name, self.dict_doms)
 
         prompts, ln_proj_layers_mlp, \
-        ln_proj_layers_att, mlp_proj_layers_mlp,  att_proj_layers_att = self.text_prompt_learner()  # i write dao zheli le
-
+        ln_proj_layers_att, mlp_proj_layers_mlp,  att_proj_layers_att = self.mail_learner()
         tokenized_prompts = self.tokenized_prompts
         text_features = self.text_encoder(prompts, tokenized_prompts, ln_proj_layers_mlp,
                                           ln_proj_layers_att, mlp_proj_layers_mlp,  att_proj_layers_att, self.last_ln)
@@ -277,12 +257,5 @@ class mail(nn.Module):
         except RuntimeError:
             state_dict = torch.load(model_path, map_location=self.device)
 
-        trainer_name = 'MaPLe' if self.cfg.maple_depth > 0 else 'CoOp'
-        design_details = {"trainer": trainer_name,
-                          "vision_depth": 0,
-                          "language_depth": 0, "vision_ctx": 0,
-                          "language_ctx": 0,
-                          "maple_length": self.cfg.maple_length}
-
-        model = clip.build_model(state_dict or model.state_dict(), design_details)
-        return model.float().to(self.device)
+        model = clip.build_model(state_dict or model.state_dict())
+        return model.float().to(self.device)  # default: float

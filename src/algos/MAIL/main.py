@@ -22,37 +22,19 @@ class Options:
                             help='Initial learning rate for optimizer & scheduler')
         parser.add_argument('-log_name', '--log_name', type=str, default='log',
                             help='log name :)')
-
         parser.add_argument('--num_shots', default=2, type=int)
-        parser.add_argument('--d', default=8, type=int)
-        parser.add_argument('--t', default=1, type=int)
-        parser.add_argument('--ln', default=1, type=int)
+        parser.add_argument('--rank', default=8, type=int, help="the rank of the trainable bridge function.")
         parser.add_argument('-lr', '--lr', type=float, default=0.0002, metavar='LR',
                             help='Initial learning rate for optimizer & scheduler')
-        parser.add_argument('-trick', '--trick', type=int, default=1,
-                            help='Initial learning rate for optimizer & scheduler')
+        parser.add_argument('-proj', '--proj', type=int, default=1,
+                            help='whether to train the last projection layer.')
         parser.add_argument('--flag', default=1, type=int)
 
-        # visual prompt
-        parser.add_argument('-visual', '--visual', default="VPT", choices=['VPT', 'None'],
-                            help='visual prompting methods:)')
-        parser.add_argument('-vptNumTokens', '--vptNumTokens', default=4, type=int,
-                            help='length of vpt-tokens')
 
         # text prompt
         parser.add_argument('-ctx_init', '--ctx_init', default='a photo of a',  # 'a photo of a'
                             help='ctx initialization :)')
-        parser.add_argument('-text', '--text', default="CoOp", choices=['CoOp', 'DCoOP', 'None'],
-                            help='text prompting methods:)')
-        parser.add_argument('-textNumTokens', '--textNumTokens', default=4, type=int,
-                            help='length of vpt-tokens')
         # maple prompt
-        parser.add_argument('-maple', '--maple', choices=[0, 1], default=1, type=int,
-                            help='whether to utilize maple')
-        parser.add_argument('-maple_depth', '--maple_depth', default=1, type=int,
-                            help='maple depth')
-        parser.add_argument('-maple_length', '--maple_length', default=4, type=int,
-                            help='prompt length')
         parser.add_argument('-start_layer', '--start_layer', default=1, type=int,
                             help='the start of mail layer')
         parser.add_argument('-end_layer', '--end_layer', default=12, type=int,
@@ -61,8 +43,6 @@ class Options:
                             help='the start of ivlu layer')
         parser.add_argument('-ivlu_end_layer', '--ivlu_end_layer', default=12, type=int,
                             help='the end of ivlu layer')
-        parser.add_argument('-ivlp', '--ivlp', choices=[0, 1], default=0, type=int,
-                            help='whether to conduct independent prompts learning')
         #
         parser.add_argument('-opt', '--optimizer', type=str, choices=['sgd', 'adam'], default='adam')
         parser.add_argument('-l2', '--l2_reg', default=5e-4, type=float, help='L2 Weight Decay for optimizer')
@@ -123,7 +103,6 @@ class Options:
         self.parser = parser
 
     def parse(self):
-        # Parse the arguments
         return self.parser.parse_args()
 
 def main(args):
@@ -133,6 +112,5 @@ def main(args):
 
 if __name__ == '__main__':
     torch.backends.cudnn.benchmark = True
-    # Parse options
     args = Options().parse()
     main(args)
