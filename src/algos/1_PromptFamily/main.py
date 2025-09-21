@@ -4,7 +4,6 @@ import os
 
 code_path = '/home/user/Code/MAIL'
 data_path = '/data/UCDR/data'
-
 sys.path.append(code_path)
 sys.path.append(os.path.join(code_path, "src"))
 print(sys.path)

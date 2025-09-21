@@ -1,8 +1,5 @@
-import sys
-import os
 
 import torch
-import torch.nn as nn
 from clip_maple import clip
 from clip_maple.model import CLIP
 from clip_maple.simple_tokenizer import SimpleTokenizer as _Tokenizer
