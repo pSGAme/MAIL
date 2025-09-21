@@ -82,9 +82,8 @@ def save_checkpoint(state, directory, save_name, last_chkpt):
     
     checkpoint_file = os.path.join(directory, save_name+'.pth')
     torch.save(state, checkpoint_file)
+
     last_chkpt_file = os.path.join(directory, last_chkpt+'.pth')
     
     if os.path.isfile(last_chkpt_file):
         os.remove(last_chkpt_file)
-    else:
-        print("Error: {} file not found".format(last_chkpt_file))
