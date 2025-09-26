@@ -2,7 +2,7 @@
 # MAIL: Multi-Modal Interactive Agent Layer for Few-Shot Universal Cross-Domain Retrieval and Beyond [NeurIPS 2025]
 > Official github repository for MAIL: **Multi-Modal Interactive Agent Layer for Few-Shot Universal Cross-Domain Retrieval and Beyond**
 
-
+> The code of applying MAIL to few-shot classification can be found at [MAIL-for-classification](https://github.com/pSGAme/MAIL-for-Classification)
 
 ## Requirements
 
